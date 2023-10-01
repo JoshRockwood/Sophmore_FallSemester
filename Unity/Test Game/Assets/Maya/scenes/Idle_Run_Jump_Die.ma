@@ -1,6 +1,6 @@
 //Maya ASCII 2024 scene
 //Name: Idle_Run_Jump_Die.ma
-//Last modified: Thu, Sep 28, 2023 11:54:08 PM
+//Last modified: Sat, Sep 30, 2023 05:36:29 PM
 //Codeset: 1252
 file -rdi 1 -ns "Ultimate_Walker_Rig" -rfn "Ultimate_Walker_RigRN" -op "v=0;"
 		 -typ "mayaAscii" "C:/Users/joshr/OneDrive/Desktop/Animation/UVU/Sophmore/Sophmore_FallSemester/Unity/Maya (Game + Anim)/Rigs/Ultimate_Walker_Rig.ma";
@@ -16,7 +16,7 @@ fileInfo "product" "Maya 2024";
 fileInfo "version" "2024";
 fileInfo "cutIdentifier" "202304191415-7fa20164c6";
 fileInfo "osv" "Windows 11 Pro v2009 (Build: 22631)";
-fileInfo "UUID" "08421B8E-4B58-75C1-5A22-F4BF539C2D38";
+fileInfo "UUID" "7555F34E-4FA5-2DCD-3B32-3789F580D06D";
 createNode transform -s -n "persp";
 	rename -uid "403EEFD4-4258-F892-6FB9-69B72D377666";
 	setAttr ".v" no;
@@ -82,20 +82,20 @@ createNode camera -s -n "sideShape" -p "side";
 	setAttr ".o" yes;
 	setAttr ".ai_translator" -type "string" "orthographic";
 createNode lightLinker -s -n "lightLinker1";
-	rename -uid "B17723CF-4A8A-4601-1769-14A24640D02B";
+	rename -uid "4B343D3A-44F0-9695-EA3F-7FA43689A64F";
 	setAttr -s 4 ".lnk";
 	setAttr -s 4 ".slnk";
 createNode shapeEditorManager -n "shapeEditorManager";
-	rename -uid "17CA8957-4912-418C-BB9B-F0826B1080A3";
+	rename -uid "2DA0DD70-4935-9447-F8A5-8B844C777C1A";
 createNode poseInterpolatorManager -n "poseInterpolatorManager";
-	rename -uid "D9134DB2-475A-3BDF-DF8B-3C8FE3F68CDC";
+	rename -uid "85ED8AC7-4B01-7FCC-2F87-F3B2EB2ADC97";
 createNode displayLayerManager -n "layerManager";
-	rename -uid "66088475-4D4E-4E6C-67B1-E38F933DB5F5";
+	rename -uid "BACECC67-4588-4067-6FE7-A091FCAD2923";
 createNode displayLayer -n "defaultLayer";
 	rename -uid "BC2FE451-4EF5-CAAA-9BBC-1FA1D6A811D5";
 	setAttr ".ufem" -type "stringArray" 0  ;
 createNode renderLayerManager -n "renderLayerManager";
-	rename -uid "140CFD0A-4FD6-99C7-452D-78B9BB304C3D";
+	rename -uid "E55CF81E-4154-D2B9-2139-FDBDA9098AD9";
 createNode renderLayer -n "defaultRenderLayer";
 	rename -uid "35E52390-43DF-818D-F5FF-8B8B460A97F2";
 	setAttr ".g" yes;
