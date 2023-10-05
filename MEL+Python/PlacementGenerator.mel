@@ -1,0 +1,28 @@
+proc placmentGenerator(float $xMax, float $xMin, float $yMax, float $yMin, float $zMax, float $zMin, int $numbDups) //define function
+[
+    //store object(s) name as variable 
+    string $sels[] = `ls -selection` // gets string array and returns selection
+
+    //loops through each selection
+    for ($i=0; $i < size($sels); $i++)
+    {
+        //perform actions to each individual object
+        for ($j =0; $j < $numbDups; $j++)
+        {
+            //duplicate current object
+            string $dups[] = `duplicate -rr $sels[$i]`; //duplicates selection and returns into a string array
+            string $dup = string $dups[0]; //grabs the first array given and assigns it to $dup
+
+            //generate a new x,y,z  value based on argument
+            float $randX = `rand $xMin $xMax`;
+            float $randY = `rand $yMin $yMax`;
+            float $randZ = `rand $zMin $zMax`;
+
+            //translate current object into a new position
+            xform -worldSpace -translation $randX $randY $randZ $dup;
+        }
+    }
+]
+
+//call function
+placmentGenerator(10, 30, 0, 1, 10, 30, 10);
