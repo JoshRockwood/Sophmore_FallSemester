@@ -1,40 +1,3 @@
-global proc float Calculator(float $input[], int $operation) // define function, requires the input and operation (assigned by a number 1-4)
-{
-
-    //checks if input is empty or operation is invalid
-    if(size($input) < 2 || $operation < 1 || $operation > 4)
-    {
-        error("Invalid input or operation.");
-        return 0.0;
-    }
-
-    float $result = 0.0; // Initializes the return result
-
-    // Determine the operation and call subfunction
-    if ($operation == 1) // Addition
-    {
-        $result = add($input);
-        printOperation("+", $input, $result);
-    }
-    else if ($operation == 2) // Subtraction
-    {
-        $result = subtract($input);
-        printOperation("-", $input, $result);
-    }
-    else if ($operation == 3) // Multiplication
-    {
-        $result = multiply($input);
-        printOperation("*", $input, $result);
-    }
-    else if ($operation == 4) // Division
-    {
-        $result = divide($input);
-        printOperation("/", $input, $result);
-    }
-
-    return $result;
-}
-
 // Subfunction for addition
 proc float add(float $values[])
 {
@@ -71,7 +34,7 @@ proc float multiply(float $values[])
 }
 
 // Subfunction for division
-proc float DistributeUVsDistancePresets(float $values[])
+proc float divide(float $values[])
 {
     float $result = $values[0];
     for ($i = 1; $i < size($values); $i++)
@@ -88,19 +51,159 @@ proc float DistributeUVsDistancePresets(float $values[])
     return $result;
 }
 
+// Subfunction for exponent
+proc float toThePowerOf(float $values[])
+{
+    if (size($values) > 2) // Only takes 2 inputs into array
+    {
+        error("Input the number and how much you wish to bring it to the power of.");
+        return 0.0;
+    }
+
+    $result = pow($values[0], $values[1]);
+   
+    return $result;
+}
+
+// Subfunction for mean
+proc float mean(float $values[])
+{
+    float $result; 
+
+    for ($value in $values)
+    {
+        $result += $value;
+    }
+
+    $result /= size($values);
+
+    return $result;
+}
+
+// Subfunction for median
+proc float median(float $values[])
+{    
+    $sortedArray = sort($values);
+
+    if (size($sortedArray) % 2 == 0) // Checks to see if array size is even
+    {
+        int $arrayLength = size($sortedArray);
+        float $lowerValue = $sortedArray[$arrayLength / 2 - 1];
+        float $upperValue = $sortedArray[$arrayLength / 2];
+        return ($upperValue + $lowerValue) / 2;
+    }
+    else // Runs if array size is odd
+    {
+       int $middleIndex = size($sortedArray) / 2;
+       return $sortedArray[$middleIndex];
+    }
+}
+
 // Subfunction to print the results of the operations 
-proc printOperation(string $operator, float $values[], float $result)
+proc printBinaryOperation(string $operator, float $values[], float $result)
 {
     string $operationString = "";
 
     for ($i = 0; $i < size($values); $i++)
     {
-        $operationString += ($i = 0) ? $values[$i] : (" " + $operator + " " + $values[$i]);
+        $operationString += $values[$i];
+
+        if ($i < size($values) - 1)
+        {
+            $operationString += " " + $operator + " ";
+        }
     }
 
-    print("The " + $operationString + " = " + $result);
+    print($operationString + " = " + $result + "\n");
 }
 
-float $input[] = {1.0, 2.0}; // insert desired numbers into calculator
-int $operation = 1; // choose operation: 1 = Addition, 2 = Subtraction, 3 = Multiplication, 4 = Division
-float $result = Calculator($input, $operation);
+// Subfunction to print mean statement
+proc printMean(float $values[], float $result)
+{
+    string $meanString = "";
+
+    for ($i = 0; $i < size($values); $i++)
+    {
+        $meanString += $values[$i];
+
+        if ($i < size($values) - 1)
+        {
+            $meanString += ", ";
+        }
+    }
+
+    print("The mean of " + $meanString + " is " + $result);
+}
+
+// Subfunction to print the median statement
+proc printMedian(float $values[], float $result)
+{
+    string $medianString = "";
+
+    for ($i = 0; $i < size($values); $i++)
+    {
+        $medianString += $values[$i];
+
+        if ($i < size($values) - 1)
+        {
+            $medianString += ", ";
+        }
+    }
+
+    print("The median of " + $medianString + " is " + $result);
+}
+// Calculator 
+proc float calculate(float $input[], int $operation) // define function, requires the input and operation (assigned by a number 1-5)
+{
+    //checks if input is empty or operation is invalid
+    if(size($input) < 2 || $operation < 1 || $operation > 7)
+    {
+        error("Invalid input or operation.");
+        return 0.0;
+    }
+
+    float $result = 0.0; // Initializes the return result
+
+    // Determine the operation and call subfunction
+    if ($operation == 1) // Addition
+    {
+        $result = add($input);
+        printBinaryOperation("+", $input, $result);
+    }
+    else if ($operation == 2) // Subtraction
+    {
+        $result = subtract($input);
+        printBinaryOperation("-", $input, $result);
+    }
+    else if ($operation == 3) // Multiplication
+    {
+        $result = multiply($input);
+        printBinaryOperation("*", $input, $result);
+    }
+    else if ($operation == 4) // Division
+    {
+        $result = divide($input);
+        printBinaryOperation("/", $input, $result);
+    }
+    else if ($operation == 5) // Exponent
+    {
+        $result = toThePowerOf($input);
+        printBinaryOperation("^", $input, $result);
+    }
+    else if ($operation == 6) // Mean
+    {
+        $result = mean($input);
+        printMean($input, $result);
+    }
+    else if ($operation == 7) // Median
+    {
+        $result = median($input);
+        printMedian($input, $result);
+    }
+
+    return $result;
+}
+
+float $numbers[] = {5.0, 2.0, 6.0, 3.0}; // insert desired numbers into calculator
+int $op = 7; // choose operation: 1 = Addition, 2 = Subtraction, 3 = Multiplication, 4 = Division, 5 = Exponent, 6 = Mean, 7 = Median
+float $answer = calculate($numbers, $op);
