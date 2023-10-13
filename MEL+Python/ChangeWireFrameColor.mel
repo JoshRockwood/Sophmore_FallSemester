@@ -1,0 +1,13 @@
+proc setWireFrameColor()
+{
+    string $sels[] = `ls -selection`;
+    for ($i = 0; $i < size($sels); $i++)
+    {
+        string $overEnab = $sels[$i] +  ".overrideEnabled";
+        string $overCol = $sels[$i] + ".overrideColor";
+        setAttr $overEnab 1;
+        setAttr $overCol 6;
+    }
+}
+
+setWireFrameColor ();
