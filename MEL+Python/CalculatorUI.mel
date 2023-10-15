@@ -1,0 +1,36 @@
+if (`window -exists "calculatorWin"`) 
+{
+    deleteUI "calculatorWin";
+}
+
+window -title "Calculator" -widthHeight 400 200 "calculatorWin";
+columnLayout -adjustableColumn true;
+
+text -label "Enter numbers separated by spaces:";
+textField "inputField";
+
+text -label "Choose operation:";
+optionMenu "operationMenu";
+menuItem -label "Addition";
+menuItem -label "Subtraction";
+menuItem -label "Multiplication";
+menuItem -label "Division";
+menuItem -label "Exponent";
+menuItem -label "Mean";
+menuItem -label "Median";
+
+button -label "Calculate" -command "calculateUI()";
+
+showWindow "calculatorWin";
+
+global proc calculateUI() 
+{
+    string $inputString = `textField -query -text "inputField"`;
+    int $operationIndex = `optionMenu -query -select "operationMenu"`;
+    
+    string $inputArray[] = stringToStringArray($inputString);
+    float $inputFloatArray[] = stringArrayToFloatArray($inputArray);
+
+    int $operation = 0;
+    if ($operationIndex == 1)
+}
