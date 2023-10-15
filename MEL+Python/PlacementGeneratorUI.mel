@@ -1,0 +1,38 @@
+if (`window -exists "placementGeneratorWin"`) {
+    deleteUI "placementGeneratorWin";
+}
+
+window -title "Placement Generator Tool" -widthHeight 300 200 "placementGeneratorWin";
+
+columnLayout -adjustableColumn true;
+
+text -label "Number of Duplicates:";
+intField -minValue 1 -value 5 "numDuplicatesField";
+
+text -label "X Range (Min/Max):";
+floatField -value 0.0 "minXField";
+floatField -value 10.0 "maxXField";
+
+text -label "Y Range (Min/Max):";
+floatField -value 0.0 "minYField";
+floatField -value 10.0 "maxYField";
+
+text -label "Z Range (Min/Max):";
+floatField -value 0.0 "minZField";
+floatField -value 10.0 "maxZField";
+
+button -label "Generate" -command "placementGeneratorUI()";
+
+showWindow "placementGeneratorWin";
+
+global proc placementGeneratorUI() {
+    int $numDuplicates = `intField -query -value "numDuplicatesField"`;
+    float $minX = `floatField -query -value "minXField"`;
+    float $maxX = `floatField -query -value "maxXField"`;
+    float $minY = `floatField -query -value "minYField"`;
+    float $maxY = `floatField -query -value "maxYField"`;
+    float $minZ = `floatField -query -value "minZField"`;
+    float $maxZ = `floatField -query -value "maxZField"`;
+
+    placementGenerator($maxX, $minX, $maxY, $minY, $maxZ, $minZ, $numDuplicates);
+}
