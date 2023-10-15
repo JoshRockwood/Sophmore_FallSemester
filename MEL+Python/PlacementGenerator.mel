@@ -1,8 +1,12 @@
-proc placmentGenerator(float $xMax, float $xMin, float $yMax, float $yMin, float $zMax, float $zMin, int $numbDups) //define function
+global proc placmentGenerator(float $xMax, float $xMin, float $yMax, float $yMin, float $zMax, float $zMin, int $numbDups) //define function
 {
     //store object(s) name as variable 
     string $sels[] = `ls -selection`; // gets string array and returns selection
 
+    if (size($sels) == 0)
+    {
+        error "Make a selection before running PlacementGenerator();";
+    }
     //loops through each selection
     for ($i=0; $i < size($sels); $i++)
     {
