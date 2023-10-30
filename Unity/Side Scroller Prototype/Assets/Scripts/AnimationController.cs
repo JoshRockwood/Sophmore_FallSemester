@@ -22,6 +22,10 @@ public class AnimationController : MonoBehaviour
             animator.SetTrigger(jump);
             isJumping = true;
         }
+        else if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            animator.SetTrigger(walk);
+        }
         else if (Input.GetKeyUp(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.RightArrow))
         {
             animator.SetTrigger(idle);
