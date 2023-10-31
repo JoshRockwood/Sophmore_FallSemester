@@ -1,6 +1,6 @@
 //Maya ASCII 2024 scene
 //Name: PALBot_Run_Jump_Idle_Die.ma
-//Last modified: Mon, Oct 30, 2023 11:28:36 AM
+//Last modified: Mon, Oct 30, 2023 06:42:26 PM
 //Codeset: 1252
 file -rdi 1 -ns "PALBot" -rfn "PALBotRN" -op "v=0;" -typ "mayaAscii" "C:/Users/joshr/OneDrive/Desktop/Animation/UVU/Sophmore/Sophmore_FallSemester/Unity/Maya (Game + Anim)/Rigs/PALBOT/scenes/PALBot.ma";
 file -r -ns "PALBot" -dr 1 -rfn "PALBotRN" -op "v=0;" -typ "mayaAscii" "C:/Users/joshr/OneDrive/Desktop/Animation/UVU/Sophmore/Sophmore_FallSemester/Unity/Maya (Game + Anim)/Rigs/PALBOT/scenes/PALBot.ma";
@@ -14,7 +14,7 @@ fileInfo "product" "Maya 2024";
 fileInfo "version" "2024";
 fileInfo "cutIdentifier" "202304191415-7fa20164c6";
 fileInfo "osv" "Windows 11 Pro v2009 (Build: 22635)";
-fileInfo "UUID" "586B5112-415F-CB08-EA4A-89B605640D31";
+fileInfo "UUID" "350A3651-4180-7EF4-52CD-A99E07A74C97";
 createNode transform -s -n "persp";
 	rename -uid "4B0BFC6F-47FE-FBCE-3DD7-B58FFC9288CB";
 	setAttr ".v" no;
@@ -81,21 +81,21 @@ createNode camera -s -n "sideShape" -p "side";
 	setAttr ".o" yes;
 	setAttr ".ai_translator" -type "string" "orthographic";
 createNode lightLinker -s -n "lightLinker1";
-	rename -uid "C572C5DB-4D1C-074B-3D27-2BA7FB91F8AE";
+	rename -uid "C7367D37-409F-F7A6-5472-42A5EEDFF4E5";
 	setAttr -s 17 ".lnk";
 	setAttr -s 17 ".slnk";
 createNode shapeEditorManager -n "shapeEditorManager";
-	rename -uid "589D6113-4094-A397-4822-2CBC86FEE387";
+	rename -uid "8C64E812-418D-00AB-AABF-7BAD885B9BF5";
 	setAttr ".bsdt[0].bscd" -type "Int32Array" 1 0 ;
 createNode poseInterpolatorManager -n "poseInterpolatorManager";
-	rename -uid "56A1AF75-4173-53E0-9395-A8868DC068DE";
+	rename -uid "B2F4C7CE-4963-3841-361D-71BF7C37F84A";
 createNode displayLayerManager -n "layerManager";
-	rename -uid "AF53EC78-4EEB-70EE-B9F8-A3915634A384";
+	rename -uid "FBF32B08-4EF3-F6DD-9020-3D9542D173A4";
 createNode displayLayer -n "defaultLayer";
 	rename -uid "5321F186-45EC-8BF3-8621-6AB93A08F52A";
 	setAttr ".ufem" -type "stringArray" 0  ;
 createNode renderLayerManager -n "renderLayerManager";
-	rename -uid "51D653CE-4AEF-426C-144F-91808140E7D2";
+	rename -uid "F3450ADE-434C-41C7-C311-5ABAD3BD5A66";
 createNode renderLayer -n "defaultRenderLayer";
 	rename -uid "694D5974-4E50-ED01-1DF1-B98CC0CAC0F7";
 	setAttr ".g" yes;
@@ -8842,7 +8842,7 @@ select -ne :hardwareRenderGlobals;
 	setAttr ".ctrs" 256;
 	setAttr ".btrs" 512;
 select -ne :ikSystem;
-	setAttr -s 2 ".sol";
+	setAttr -s 4 ".sol";
 connectAttr "PALbot_MAIN_global_scale.o" "PALBotRN.phl[1]";
 connectAttr "PALbot_MAIN_Mesh_lock.o" "PALBotRN.phl[2]";
 connectAttr "PALbot_MAIN_translateX.o" "PALBotRN.phl[3]";
