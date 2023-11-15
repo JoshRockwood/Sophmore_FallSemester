@@ -1,0 +1,3 @@
+[submodule "SideScrollerPrototype/Assets/Tools"]
+	path = SideScrollerPrototype/Assets/Tools
+	url = https://github.com/JoshRockwood/ArtisanDream.Tools.git
