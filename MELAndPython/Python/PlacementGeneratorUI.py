@@ -37,5 +37,15 @@ row_2_column = cmds.columnLayout(adjustableColumn=True, parent=rowLayout_name)
 cmds.text(row_2_column, label='Number of Duplicates')
 cmds.intField(parent=row_2_column)
 
+cmds.button(parent=row_2_column, label='Generate')
+
+# Bottom row
+rowLayout2_name = cmds.rowLayout(parent=columnLayout_name, numberOfColumns=1)
+rowLayout_column_1 = cmds.columnLayout(adjustableColumn=True, parent=rowLayout2_name)
+
+# Error display
+cmds.text(rowLayout_column_1, label='Error Message:')
+cmds.commandLine(parent=rowLayout_column_1)
+
 
 cmds.showWindow(window_name)
