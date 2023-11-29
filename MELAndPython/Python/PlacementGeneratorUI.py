@@ -1,5 +1,4 @@
 import maya.cmds as cmds
-# import PlacementGenerator as pg
 
 
 class PlacementGeneratorUI:
@@ -7,16 +6,22 @@ class PlacementGeneratorUI:
     window_name = '%s Window' % ui_name
 
     def __init__(self):
-        self.window_name = 'Placement Generator'
+        pass
 
     def delete(self):
-        if cmds.window(PlacementGeneratorUI.window_name, '%s window' % self.window_name, exists=True):
-            cmds.deleteUI('%s window' % self.window_name)
+        if cmds.window(PlacementGeneratorUI.window_name, exists=True):
+            cmds.deleteUI(PlacementGeneratorUI.window_name)
 
     def create(self):
         self.delete()
         self.window_name = cmds.window(PlacementGeneratorUI.window_name,
                                        title='%s' % PlacementGeneratorUI.ui_name)
+        cmds.showWindow(self.window_name)
+
+
+ui_instance = PlacementGeneratorUI()
+ui_instance.create()
+
 # Makes sure to not open more than one window
 # window_name = 'placement_generator_window'
 # if cmds.window(window_name, exists=True):
