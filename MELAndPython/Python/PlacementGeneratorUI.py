@@ -16,7 +16,50 @@ class PlacementGeneratorUI:
         self.delete()
         self.window_name = cmds.window(PlacementGeneratorUI.window_name,
                                        title='%s' % PlacementGeneratorUI.ui_name)
-        cmds.showWindow(self.window_name)
+        # Create main layout
+        m_col = cmds.columnLayout(adjustableColumn=True, parent=self.window_name)
+        m_row = cmds.rowLayout(parent=m_col, numberOfColumns=3)
+        row_1_column = cmds.columnLayout(adjustableColumn=True, parent=m_row)
+
+        # Set int fields and text before them
+        cmds.text(row_1_column, label='X-Min: ')
+        cmds.intField(parent=row_1_column)
+
+        cmds.text(row_1_column, label='X-Max: ')
+        cmds.intField(parent=row_1_column)
+
+        cmds.text(row_1_column, label='Y-Min: ')
+        cmds.intField(parent=row_1_column)
+
+        cmds.text(row_1_column, label='Y-Max: ')
+        cmds.intField(parent=row_1_column)
+
+        cmds.text(row_1_column, label='Z-Min: ')
+        cmds.intField(parent=row_1_column)
+
+        cmds.text(row_1_column, label='Z-Max: ')
+        cmds.intField(parent=row_1_column)
+
+        # Populate second column
+        row_2_column = cmds.columnLayout(adjustableColumn=True, parent=m_row)
+
+        cmds.text(row_2_column, label='Number of Duplicates')
+        cmds.intField(parent=row_2_column)
+
+        cmds.button(parent=row_2_column, label='Generate')
+
+        # Bottom row
+        s_row = cmds.rowLayout(parent=m_col, numberOfColumns=1)
+        s_row_col = cmds.columnLayout(adjustableColumn=True, parent=s_row)
+
+        # Error display
+        cmds.text(s_row_col, label='Error Message:')
+        cmds.commandLine(parent=s_row_col)
+
+        self.show()
+
+    def show(self):
+        cmds.showWindow(PlacementGeneratorUI.window_name)
 
 
 ui_instance = PlacementGeneratorUI()
