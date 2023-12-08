@@ -1,6 +1,6 @@
 //Maya ASCII 2024 scene
 //Name: PounceAnim.ma
-//Last modified: Thu, Dec 07, 2023 09:54:09 PM
+//Last modified: Thu, Dec 07, 2023 10:00:15 PM
 //Codeset: 1252
 file -rdi 1 -ns "PALBot" -rfn "PALBotRN" -op "v=0;" -typ "mayaAscii" "C:/git/Sophmore_FallSemester/Unity/MayaGameAnim/Rigs/PALBOT/scenes/PALBot.ma";
 file -rdi 1 -ns "PALBot1" -rfn "PALBotRN1" -op "v=0;" -typ "mayaAscii" "C:/git/Sophmore_FallSemester/Unity/MayaGameAnim/Rigs/PALBOT/scenes/PALBot.ma";
@@ -18,7 +18,7 @@ fileInfo "product" "Maya 2024";
 fileInfo "version" "2024";
 fileInfo "cutIdentifier" "202310181224-69282f2959";
 fileInfo "osv" "Windows 11 Pro v2009 (Build: 22631)";
-fileInfo "UUID" "D600EB61-42AB-DEF6-DCBA-2C845E9EDE21";
+fileInfo "UUID" "C65F18CC-4BC2-51C7-5D15-B0B3D181B349";
 createNode transform -s -n "persp";
 	rename -uid "9D2BA417-4A90-599D-9878-50AD9EB2B256";
 	setAttr ".v" no;
@@ -14762,7 +14762,7 @@ createNode reference -n "_UNKNOWN_REF_NODE_";
 		2 ":modelPanel4ViewSelectedSet" "ihi" " 0"
 		2 ":modelPanel4ViewSelectedSet" "dsm" " -s 2";
 createNode mayaUsdLayerManager -n "mayaUsdLayerManager1";
-	rename -uid "FCD32147-4664-73FE-80FD-A787649B6A9F";
+	rename -uid "AB032E0B-48EE-7594-BA86-8880EDF752D8";
 	setAttr ".sst" -type "string" "";
 select -ne :time1;
 	setAttr ".o" 1;
