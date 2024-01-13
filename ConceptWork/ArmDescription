@@ -15,3 +15,9 @@ The arm is powered by AI and has a display screen so the AI can show emotion and
 
 The final arm is supposed to be a chess master. It's modeled after chess pieces with the base being a knight chess piece.
 The forearm is a rook piece and the fingers are pawns. It's meant to be the final opponent to face before becoming a grandmaster in chess.
+
+---Prototype Update---
+I decided to go with the chess master arm. Getting the knight chess piece down was a little tricky, but I feel like I was able to emulate what a knight piece looks like somewhat effectively. 
+I really tried to keep in mind how the arm would move, and if there would be any geometry that would overlap as it was moving, because that would restrict movement in real life.
+I specifically positioned the knight to face the back side of the arm, to give the rook portion the most amount of movement on the hinge joint between the two arm pieces.
+It has a ball joint on the bottom, which was an addition to the original design, to give the arm more movement and functionality.
