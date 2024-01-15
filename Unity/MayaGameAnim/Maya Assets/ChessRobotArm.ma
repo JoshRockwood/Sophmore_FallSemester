@@ -1,6 +1,6 @@
 //Maya ASCII 2024 scene
 //Name: ChessRobotArm.ma
-//Last modified: Mon, Jan 15, 2024 11:21:28 AM
+//Last modified: Mon, Jan 15, 2024 11:26:19 AM
 //Codeset: 1252
 requires maya "2024";
 requires "stereoCamera" "10.0";
@@ -13,17 +13,17 @@ fileInfo "product" "Maya 2024";
 fileInfo "version" "2024";
 fileInfo "cutIdentifier" "202310181224-69282f2959";
 fileInfo "osv" "Windows 11 Pro v2009 (Build: 22631)";
-fileInfo "UUID" "0F26378D-45F7-8081-2F93-49A1FE9D5525";
+fileInfo "UUID" "3A0FEF59-4B0D-20AA-1A75-DF87A3C5EE59";
 createNode transform -s -n "persp";
 	rename -uid "D06B25D9-45AD-6531-18E8-46B49C83C11B";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" -4.9707517788518292 5.7644368346730337 19.391613596545135 ;
-	setAttr ".r" -type "double3" 1422.261647396605 -6138.9999999998581 -8.4095510218950421e-16 ;
+	setAttr ".t" -type "double3" -12.184249997407255 9.229356411211791 20.816495888823674 ;
+	setAttr ".r" -type "double3" 1425.2616473960825 -6513.3999999968464 0 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "6090119A-4E4F-0D25-0B90-3AB97EFA9614";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999993;
-	setAttr ".coi" 21.480742845089864;
+	setAttr ".coi" 26.257626935231276;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -121,6 +121,8 @@ createNode mesh -n "Bottom_Ball_JointShape" -p "Bottom_Ball_Joint";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
 	setAttr ".covm[0]"  0 1 1;
 	setAttr ".cdvm[0]"  0 1 1;
+	setAttr ".dr" 3;
+	setAttr ".dsm" 2;
 createNode transform -n "Base" -p "Geometry";
 	rename -uid "62BF155B-4048-6F00-412B-D6AA59610BC7";
 	setAttr ".rp" -type "double3" 0 0.4924805508703532 0 ;
@@ -128,6 +130,20 @@ createNode transform -n "Base" -p "Geometry";
 createNode mesh -n "BaseShape" -p "Base";
 	rename -uid "0952F3E1-4E53-621D-3B7A-CB916CC80B6B";
 	setAttr -k off ".v";
+	setAttr -s 2 ".iog[0].og";
+	setAttr ".vir" yes;
+	setAttr ".vif" yes;
+	setAttr ".uvst[0].uvsn" -type "string" "map1";
+	setAttr ".cuvs" -type "string" "map1";
+	setAttr ".dcc" -type "string" "Ambient+Diffuse";
+	setAttr ".covm[0]"  0 1 1;
+	setAttr ".cdvm[0]"  0 1 1;
+	setAttr ".dr" 3;
+	setAttr ".dsm" 2;
+createNode mesh -n "polySurfaceShape1" -p "Base";
+	rename -uid "137CEDF9-40B5-9BAB-CE68-89BE4B5216FB";
+	setAttr -k off ".v";
+	setAttr ".io" yes;
 	setAttr ".iog[0].og[0].gcl" -type "componentList" 1 "f[0:65]";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
@@ -23963,14 +23979,87 @@ createNode groupId -n "groupId22";
 createNode groupId -n "groupId23";
 	rename -uid "88BC5070-484C-800A-1610-40B8AAE970A2";
 	setAttr ".ihi" 0;
-createNode groupId -n "groupId24";
-	rename -uid "73AD7D48-4044-31BB-A473-6DA90A42B37E";
-	setAttr ".ihi" 0;
 createNode groupId -n "groupId25";
 	rename -uid "78A7556E-4FE8-1437-669B-0A9E2561C505";
 	setAttr ".ihi" 0;
+createNode groupId -n "groupId26";
+	rename -uid "44AC83B8-48BF-7DF5-D31B-A885F2833EA2";
+	setAttr ".ihi" 0;
+createNode groupParts -n "groupParts1";
+	rename -uid "517C472B-4C81-8357-1D87-2EB07066F4CD";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "f[0:65]";
+createNode polySplit -n "polySplit1";
+	rename -uid "0D9A9E0B-4BF6-DD13-C10B-9BBC147700A1";
+	setAttr -s 21 ".e[0:20]"  0.25250301 0.25250301 0.25250301 0.25250301
+		 0.25250301 0.25250301 0.25250301 0.25250301 0.25250301 0.25250301 0.25250301 0.25250301
+		 0.25250301 0.25250301 0.25250301 0.25250301 0.25250301 0.25250301 0.25250301 0.25250301
+		 0.25250301;
+	setAttr -s 21 ".d[0:20]"  -2147483596 -2147483577 -2147483578 -2147483579 -2147483580 -2147483581 
+		-2147483582 -2147483583 -2147483584 -2147483585 -2147483586 -2147483587 -2147483588 -2147483589 -2147483590 -2147483591 -2147483592 -2147483593 
+		-2147483594 -2147483595 -2147483596;
+	setAttr ".sma" 180;
+	setAttr ".m2015" yes;
+createNode polySplit -n "polySplit2";
+	rename -uid "A98CA47F-499A-DCF8-5666-38892C9A4E72";
+	setAttr -s 21 ".e[0:20]"  0.94116497 0.94116497 0.94116497 0.94116497
+		 0.94116497 0.94116497 0.94116497 0.94116497 0.94116497 0.94116497 0.94116497 0.94116497
+		 0.94116497 0.94116497 0.94116497 0.94116497 0.94116497 0.94116497 0.94116497 0.94116497
+		 0.94116497;
+	setAttr -s 21 ".d[0:20]"  -2147483536 -2147483535 -2147483534 -2147483533 -2147483532 -2147483531 
+		-2147483530 -2147483529 -2147483528 -2147483527 -2147483526 -2147483525 -2147483524 -2147483523 -2147483522 -2147483521 -2147483520 -2147483519 
+		-2147483518 -2147483517 -2147483536;
+	setAttr ".sma" 180;
+	setAttr ".m2015" yes;
+createNode polySplit -n "polySplit3";
+	rename -uid "DCFD850C-45C1-3A4A-9866-70BDE17885FE";
+	setAttr -s 5 ".e[0:4]"  0.0060848198 0.99391502 0.99391502 0.0060848198
+		 0.0060848198;
+	setAttr -s 5 ".d[0:4]"  -2147483642 -2147483638 -2147483637 -2147483641 -2147483642;
+	setAttr ".sma" 180;
+	setAttr ".m2015" yes;
+createNode polySplit -n "polySplit4";
+	rename -uid "07B25FFB-4F3C-C1F9-7A2F-EF8D71075D72";
+	setAttr -s 5 ".e[0:4]"  0.0100238 0.98997599 0.98997599 0.0100238
+		 0.0100238;
+	setAttr -s 5 ".d[0:4]"  -2147483638 -2147483456 -2147483453 -2147483637 -2147483638;
+	setAttr ".sma" 180;
+	setAttr ".m2015" yes;
+createNode polySplit -n "polySplit5";
+	rename -uid "7A2F2EE7-4157-D1F9-B75B-80AA845E6AD6";
+	setAttr -s 9 ".e[0:8]"  0.0086119901 0.0086119901 0.99138802 0.0086119901
+		 0.0086119901 0.0086119901 0.99138802 0.0086119901 0.0086119901;
+	setAttr -s 9 ".d[0:8]"  -2147483648 -2147483647 -2147483449 -2147483443 -2147483646 -2147483645 
+		-2147483441 -2147483451 -2147483648;
+	setAttr ".sma" 180;
+	setAttr ".m2015" yes;
+createNode polySplit -n "polySplit6";
+	rename -uid "44646848-4903-3227-C025-A18B0EE0177F";
+	setAttr -s 11 ".e[0:10]"  0.15778799 0.84221202 0.15778799 0.84221202
+		 0.84221202 0.84221202 0.84221202 0.15778799 0.15778799 0.15778799 0.15778799;
+	setAttr -s 11 ".d[0:10]"  -2147483644 -2147483452 -2147483444 -2147483640 -2147483428 -2147483639 
+		-2147483442 -2147483450 -2147483643 -2147483432 -2147483644;
+	setAttr ".sma" 180;
+	setAttr ".m2015" yes;
+createNode polySplit -n "polySplit7";
+	rename -uid "A22D2C59-487D-4135-1739-D99E866BAC33";
+	setAttr -s 11 ".e[0:10]"  0.21393 0.78606999 0.21393 0.78606999 0.78606999
+		 0.78606999 0.78606999 0.21393 0.21393 0.21393 0.21393;
+	setAttr -s 11 ".d[0:10]"  -2147483640 -2147483422 -2147483452 -2147483424 -2147483415 -2147483416 
+		-2147483417 -2147483442 -2147483639 -2147483428 -2147483640;
+	setAttr ".sma" 180;
+	setAttr ".m2015" yes;
+createNode polySplit -n "polySplit8";
+	rename -uid "C6E529AC-42EE-D36C-598B-17A67943A0F9";
+	setAttr -s 13 ".e[0:12]"  0.0082718702 0.99172801 0.99172801 0.0082718702
+		 0.99172801 0.99172801 0.0082718702 0.99172801 0.99172801 0.0082718702 0.99172801
+		 0.99172801 0.0082718702;
+	setAttr -s 13 ".d[0:12]"  -2147483449 -2147483439 -2147483390 -2147483406 -2147483440 -2147483433 
+		-2147483441 -2147483435 -2147483410 -2147483386 -2147483436 -2147483437 -2147483449;
+	setAttr ".sma" 180;
+	setAttr ".m2015" yes;
 createNode mayaUsdLayerManager -n "mayaUsdLayerManager1";
-	rename -uid "25896CBD-4461-EB7A-07EF-6EAE1059A06C";
+	rename -uid "911810FE-4A9E-CD27-742A-68863261D0EE";
 	setAttr ".sst" -type "string" "";
 select -ne :time1;
 	setAttr ".o" 1;
@@ -24020,8 +24109,9 @@ select -ne :hardwareRenderGlobals;
 select -ne :ikSystem;
 	setAttr -s 4 ".sol";
 connectAttr "polySphere2.out" "Bottom_Ball_JointShape.i";
-connectAttr "groupId24.id" "BaseShape.iog.og[0].gid";
+connectAttr "groupId26.id" "BaseShape.iog.og[0].gid";
 connectAttr ":initialShadingGroup.mwc" "BaseShape.iog.og[0].gco";
+connectAttr "polySplit8.out" "BaseShape.i";
 connectAttr "groupId25.id" "Knight_ArmShape.iog.og[0].gid";
 connectAttr ":initialShadingGroup.mwc" "Knight_ArmShape.iog.og[0].gco";
 connectAttr "groupId14.id" "Rook_ArmShape.iog.og[0].gid";
@@ -24054,6 +24144,16 @@ connectAttr ":defaultArnoldDisplayDriver.msg" ":defaultArnoldRenderOptions.drive
 		 -na;
 connectAttr ":defaultArnoldFilter.msg" ":defaultArnoldRenderOptions.filt";
 connectAttr ":defaultArnoldDriver.msg" ":defaultArnoldRenderOptions.drvr";
+connectAttr "polySurfaceShape1.o" "groupParts1.ig";
+connectAttr "groupId26.id" "groupParts1.gi";
+connectAttr "groupParts1.og" "polySplit1.ip";
+connectAttr "polySplit1.out" "polySplit2.ip";
+connectAttr "polySplit2.out" "polySplit3.ip";
+connectAttr "polySplit3.out" "polySplit4.ip";
+connectAttr "polySplit4.out" "polySplit5.ip";
+connectAttr "polySplit5.out" "polySplit6.ip";
+connectAttr "polySplit6.out" "polySplit7.ip";
+connectAttr "polySplit7.out" "polySplit8.ip";
 connectAttr "defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
 connectAttr "Bottom_Ball_JointShape.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "Rook_ArmShape.iog.og[0]" ":initialShadingGroup.dsm" -na;
@@ -24069,8 +24169,8 @@ connectAttr "Pawn_Piece2Shape.iog.og[0]" ":initialShadingGroup.dsm" -na;
 connectAttr "pSphere10Shape.iog.og[0]" ":initialShadingGroup.dsm" -na;
 connectAttr "pSphere11Shape.iog.og[0]" ":initialShadingGroup.dsm" -na;
 connectAttr "Bottom_FingerShape.iog" ":initialShadingGroup.dsm" -na;
-connectAttr "BaseShape.iog.og[0]" ":initialShadingGroup.dsm" -na;
 connectAttr "Knight_ArmShape.iog.og[0]" ":initialShadingGroup.dsm" -na;
+connectAttr "BaseShape.iog.og[0]" ":initialShadingGroup.dsm" -na;
 connectAttr "groupId14.msg" ":initialShadingGroup.gn" -na;
 connectAttr "groupId15.msg" ":initialShadingGroup.gn" -na;
 connectAttr "groupId16.msg" ":initialShadingGroup.gn" -na;
@@ -24081,6 +24181,6 @@ connectAttr "groupId20.msg" ":initialShadingGroup.gn" -na;
 connectAttr "groupId21.msg" ":initialShadingGroup.gn" -na;
 connectAttr "groupId22.msg" ":initialShadingGroup.gn" -na;
 connectAttr "groupId23.msg" ":initialShadingGroup.gn" -na;
-connectAttr "groupId24.msg" ":initialShadingGroup.gn" -na;
 connectAttr "groupId25.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId26.msg" ":initialShadingGroup.gn" -na;
 // End of ChessRobotArm.ma
