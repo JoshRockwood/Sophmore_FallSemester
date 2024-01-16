@@ -25,3 +25,4 @@ It has a ball joint on the bottom, which was an addition to the original design,
 --Model Update--
 I added ears to the knight piece and indents for the eyes and nostrils. I finished up the fingers on the arms with edge looping and the multicut tool to make sure teh topology was correct. 
 I made sure that all the parenting was correctly laid out and that the model was moving and functioning correctly so it was prepped for rigging.
+I also added little discs to "pocket" the finger joints connected to the rook part of the arm.
