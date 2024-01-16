@@ -21,3 +21,7 @@ I decided to go with the chess master arm. Getting the knight chess piece down w
 I really tried to keep in mind how the arm would move, and if there would be any geometry that would overlap as it was moving, because that would restrict movement in real life.
 I specifically positioned the knight to face the back side of the arm, to give the rook portion the most amount of movement on the hinge joint between the two arm pieces.
 It has a ball joint on the bottom, which was an addition to the original design, to give the arm more movement and functionality.
+
+--Model Update--
+I added ears to the knight piece and indents for the eyes and nostrils. I finished up the fingers on the arms with edge looping and the multicut tool to make sure teh topology was correct. 
+I made sure that all the parenting was correctly laid out and that the model was moving and functioning correctly so it was prepped for rigging.
