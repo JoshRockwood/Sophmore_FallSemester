@@ -1,6 +1,6 @@
 //Maya ASCII 2023 scene
-//Name: bot_model_Lab_1.ma
-//Last modified: Fri, Jan 12, 2024 01:58:59 PM
+//Name: bot_model_Lab.ma
+//Last modified: Fri, Jan 19, 2024 12:47:44 PM
 //Codeset: 1252
 requires maya "2023";
 requires "stereoCamera" "10.0";
@@ -12,19 +12,19 @@ fileInfo "product" "Maya 2023";
 fileInfo "version" "2023";
 fileInfo "cutIdentifier" "202211021031-847a9f9623";
 fileInfo "osv" "Windows 11 Pro v2009 (Build: 22635)";
-fileInfo "UUID" "C2D619C8-470B-C51E-CB6D-638526D4998F";
+fileInfo "UUID" "8AD98C88-44CB-1FE9-A807-6EB4EDB01D60";
 createNode transform -s -n "persp";
 	rename -uid "EBB779B0-44CB-7CFD-F701-378E7642E03F";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" -0.66997746757163412 16.252120654532426 37.661179448248021 ;
-	setAttr ".r" -type "double3" -13.53835272243424 -1081.0000000000675 8.6981539781083037e-16 ;
+	setAttr ".t" -type "double3" 2.9513067977844107 12.878786115740358 33.78101919132186 ;
+	setAttr ".r" -type "double3" -8.1383527224999135 -1075.000000000007 9.9771996363887728e-17 ;
 	setAttr ".rp" -type "double3" 0 -4.4408920985006262e-16 0 ;
 	setAttr ".rpt" -type "double3" -1.9001113671653646e-15 -1.1080931111936547e-15 4.5561621913187384e-16 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "EC9C5DC4-41EA-2F94-8363-38AE44DE07EA";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999993;
-	setAttr ".coi" 39.661264982084127;
+	setAttr ".coi" 34.206941929952961;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -83,39 +83,11 @@ createNode camera -s -n "sideShape" -p "side";
 	setAttr ".hc" -type "string" "viewSet -s %camera";
 	setAttr ".o" yes;
 	setAttr ".ai_translator" -type "string" "orthographic";
-createNode transform -n "polySurface18";
-	rename -uid "607E683A-471D-1414-D1F6-EEA3FEF26B95";
-createNode mesh -n "polySurfaceShape34" -p "polySurface18";
-	rename -uid "BE54D92D-47E0-69DA-2F6A-DFA6919BED62";
-	setAttr -k off ".v";
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr -s 2 ".uvst";
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr -s 4 ".uvst[0].uvsp[0:3]" -type "float2" 0.032050241 0 0.03223896
-		 0.012921859 0.032168038 0.012921859 0.031979054 3.0801328e-07;
-	setAttr ".uvst[1].uvsn" -type "string" "map11";
-	setAttr -s 4 ".uvst[1].uvsp[0:3]" -type "float2" 0.660133 0.66973114
-		 0.65989101 0.68087757 0.65982974 0.68087482 0.66007197 0.6697284;
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcol" yes;
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-	setAttr -s 4 ".vt[0:3]"  -3.50267148 13.17200375 0 -3.50094509 13.17216873 0
-		 -3.49026847 13.091277122 -0.30491766 -3.48854113 13.091440201 -0.30491766;
-	setAttr -s 4 ".ed[0:3]"  1 0 0 0 2 0 2 3 0 3 1 0;
-	setAttr -ch 4 ".fc[0]" -type "polyFaces" 
-		f 4 -4 -3 -2 -1
-		mu 0 4 0 1 2 3
-		mu 1 4 0 1 2 3;
-	setAttr ".cd" -type "dataPolyComponent" Index_Data Edge 0 ;
-	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
-	setAttr -s 2 ".pd";
-	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
-	setAttr ".pd[1]" -type "dataPolyComponent" Index_Data UV 0 ;
-	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
-createNode transform -n "B_Torso_Geo";
+createNode transform -n "Robot";
+	rename -uid "D8C7C187-406F-731B-8C3D-01ACECD8DDE8";
+createNode transform -n "Geometry" -p "Robot";
+	rename -uid "34B0CAD4-4A68-0D09-0FD6-1888D281C8A6";
+createNode transform -n "B_Torso_Geo" -p "Geometry";
 	rename -uid "2CC36ADF-40EF-FEBF-184A-519756C302BF";
 	setAttr ".rp" -type "double3" 0 7.3869705200195312 0 ;
 	setAttr ".sp" -type "double3" 0 7.3869705200195312 0 ;
@@ -12478,11 +12450,11 @@ createNode mesh -n "L_Hand_GeoShape" -p "L_Hand_Geo";
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".pd[1]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
-createNode transform -n "L_Thumb1_Geo" -p "L_Hand_Geo";
+createNode transform -n "L_Thumb_Knuckle_1_Geo" -p "L_Hand_Geo";
 	rename -uid "17FC1FB3-49BB-C000-AC39-CFBCD9770887";
 	setAttr ".rp" -type "double3" 3.8834133148193368 2.4239704608917236 0.78716540336608909 ;
 	setAttr ".sp" -type "double3" 3.8834133148193368 2.4239704608917236 0.78716540336608909 ;
-createNode mesh -n "L_Thumb1_GeoShape" -p "L_Thumb1_Geo";
+createNode mesh -n "L_Thumb_Knuckle_1_GeoShape" -p "L_Thumb_Knuckle_1_Geo";
 	rename -uid "47497B9B-408D-2DF6-CAA1-AD957DB2B09E";
 	setAttr -k off ".v";
 	setAttr ".iog[0].og[0].gcl" -type "componentList" 1 "f[0:387]";
@@ -14138,11 +14110,11 @@ createNode mesh -n "L_Thumb1_GeoShape" -p "L_Thumb1_Geo";
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".pd[1]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
-createNode transform -n "L_Thumb2_Geo" -p "L_Thumb1_Geo";
+createNode transform -n "L_Thumb_Knuckle_2_Geo" -p "L_Thumb_Knuckle_1_Geo";
 	rename -uid "603D4007-4D26-DC3E-FD86-24AA04CBD9C6";
 	setAttr ".rp" -type "double3" 3.6954069137573251 2.1413235664367676 1.6237095594406132 ;
 	setAttr ".sp" -type "double3" 3.6954069137573251 2.1413235664367676 1.6237095594406132 ;
-createNode mesh -n "L_Thumb2_GeoShape" -p "L_Thumb2_Geo";
+createNode mesh -n "L_Thumb_Knuckle_2_GeoShape" -p "L_Thumb_Knuckle_2_Geo";
 	rename -uid "8C541E39-4391-4132-E4E5-5BAE60116E29";
 	setAttr -k off ".v";
 	setAttr ".iog[0].og[0].gcl" -type "componentList" 1 "f[0:359]";
@@ -15674,11 +15646,11 @@ createNode mesh -n "L_Thumb2_GeoShape" -p "L_Thumb2_Geo";
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".pd[1]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
-createNode transform -n "L_Index1_Geo" -p "L_Hand_Geo";
+createNode transform -n "L_Index_Knuckle_1_Geo" -p "L_Hand_Geo";
 	rename -uid "B49D8B86-4BE0-3808-61C3-2DA0BA187882";
 	setAttr ".rp" -type "double3" 3.8803181648254403 2.0164346694946289 0.65135407447814953 ;
 	setAttr ".sp" -type "double3" 3.8803181648254403 2.0164346694946289 0.65135407447814953 ;
-createNode mesh -n "L_Index1_GeoShape" -p "L_Index1_Geo";
+createNode mesh -n "L_Index_Knuckle_1_GeoShape" -p "L_Index_Knuckle_1_Geo";
 	rename -uid "9E871BE7-4009-8A65-7C3B-A0A5BAAED727";
 	setAttr -k off ".v";
 	setAttr ".iog[0].og[0].gcl" -type "componentList" 1 "f[0:351]";
@@ -17182,11 +17154,11 @@ createNode mesh -n "L_Index1_GeoShape" -p "L_Index1_Geo";
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".pd[1]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
-createNode transform -n "L_Index2_Geo" -p "L_Index1_Geo";
+createNode transform -n "L_Index_Knuckle_2_Geo" -p "L_Index_Knuckle_1_Geo";
 	rename -uid "7A603BB2-48E1-5BB0-AB76-08809CA9CAAA";
 	setAttr ".rp" -type "double3" 3.8652324676513681 1.3382002115249634 0.72847878932952892 ;
 	setAttr ".sp" -type "double3" 3.8652324676513681 1.3382002115249634 0.72847878932952892 ;
-createNode mesh -n "L_Index2_GeoShape" -p "L_Index2_Geo";
+createNode mesh -n "L_Index_Knuckle_2_GeoShape" -p "L_Index_Knuckle_2_Geo";
 	rename -uid "FB893C86-4A1B-928F-D57F-C1B790266951";
 	setAttr -k off ".v";
 	setAttr ".iog[0].og[0].gcl" -type "componentList" 1 "f[0:399]";
@@ -18900,11 +18872,11 @@ createNode mesh -n "L_Index2_GeoShape" -p "L_Index2_Geo";
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".pd[1]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
-createNode transform -n "L_Index3_Geo" -p "L_Index2_Geo";
+createNode transform -n "L_Index_Knuckle_3_Geo" -p "L_Index_Knuckle_2_Geo";
 	rename -uid "6AA298E1-4B7F-0BD3-5E05-A2A59761C929";
 	setAttr ".rp" -type "double3" 3.8255441188812265 0.84077012538909912 0.77706778049469016 ;
 	setAttr ".sp" -type "double3" 3.8255441188812265 0.84077012538909912 0.77706778049469016 ;
-createNode mesh -n "L_Index3_GeoShape" -p "L_Index3_Geo";
+createNode mesh -n "L_Index_Knuckle_3_GeoShape" -p "L_Index_Knuckle_3_Geo";
 	rename -uid "323B22B1-42CD-1927-3EEC-76AC42C86AD7";
 	setAttr -k off ".v";
 	setAttr ".iog[0].og[0].gcl" -type "componentList" 1 "f[0:359]";
@@ -20437,11 +20409,11 @@ createNode mesh -n "L_Index3_GeoShape" -p "L_Index3_Geo";
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".pd[1]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
-createNode transform -n "L_Middle1_Geo" -p "L_Hand_Geo";
+createNode transform -n "L_Middle_Knuckle_1_Geo" -p "L_Hand_Geo";
 	rename -uid "06F06698-4D99-112A-0A2F-B2AFD98C4CAE";
 	setAttr ".rp" -type "double3" 4.0139513015747079 1.9942152500152588 0.13922435045242312 ;
 	setAttr ".sp" -type "double3" 4.0139513015747079 1.9942152500152588 0.13922435045242312 ;
-createNode mesh -n "L_Middle1_GeoShape" -p "L_Middle1_Geo";
+createNode mesh -n "L_Middle_Knuckle_1_GeoShape" -p "L_Middle_Knuckle_1_Geo";
 	rename -uid "5B3C5DAB-4D71-E128-83C7-958637D3E5A8";
 	setAttr -k off ".v";
 	setAttr ".iog[0].og[0].gcl" -type "componentList" 1 "f[0:351]";
@@ -21936,11 +21908,11 @@ createNode mesh -n "L_Middle1_GeoShape" -p "L_Middle1_Geo";
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".pd[1]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
-createNode transform -n "L_Middle2_Geo" -p "L_Middle1_Geo";
+createNode transform -n "L_Middle_Knuckle_2_Geo" -p "L_Middle_Knuckle_1_Geo";
 	rename -uid "2CB5A0CC-4D30-755B-68D6-93A528EA4098";
 	setAttr ".rp" -type "double3" 3.9844713211059579 1.2669678926467896 0.13270218670368197 ;
 	setAttr ".sp" -type "double3" 3.9844713211059579 1.2669678926467896 0.13270218670368197 ;
-createNode mesh -n "L_Middle2_GeoShape" -p "L_Middle2_Geo";
+createNode mesh -n "L_Middle_Knuckle_2_GeoShape" -p "L_Middle_Knuckle_2_Geo";
 	rename -uid "1BD80E84-4824-9A29-A58E-73B46F6DC93B";
 	setAttr -k off ".v";
 	setAttr ".iog[0].og[0].gcl" -type "componentList" 1 "f[0:399]";
@@ -23656,11 +23628,11 @@ createNode mesh -n "L_Middle2_GeoShape" -p "L_Middle2_Geo";
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".pd[1]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
-createNode transform -n "L_Middle3_Geo" -p "L_Middle2_Geo";
+createNode transform -n "L_Middle_Knuckle_3_Geo" -p "L_Middle_Knuckle_2_Geo";
 	rename -uid "A5C5AE0E-46B7-6841-0517-86A750ACA3FE";
 	setAttr ".rp" -type "double3" 3.9423351287841806 0.7363663911819458 0.12794357538223269 ;
 	setAttr ".sp" -type "double3" 3.9423351287841806 0.7363663911819458 0.12794357538223269 ;
-createNode mesh -n "L_Middle3_GeoShape" -p "L_Middle3_Geo";
+createNode mesh -n "L_Middle_Knuckle_3_GeoShape" -p "L_Middle_Knuckle_3_Geo";
 	rename -uid "9970FE7B-406B-9839-DDAA-81AE6C459C05";
 	setAttr -k off ".v";
 	setAttr ".iog[0].og[0].gcl" -type "componentList" 1 "f[0:359]";
@@ -25194,11 +25166,11 @@ createNode mesh -n "L_Middle3_GeoShape" -p "L_Middle3_Geo";
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".pd[1]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
-createNode transform -n "L_Pinky1_Geo" -p "L_Hand_Geo";
+createNode transform -n "L_Pinky_Knuckle_1_Geo" -p "L_Hand_Geo";
 	rename -uid "FE61805D-4736-C0A5-29A6-E99FA09EDF8A";
 	setAttr ".rp" -type "double3" 3.8743095397949228 1.9305264949798584 -0.37759774923324596 ;
 	setAttr ".sp" -type "double3" 3.8743095397949228 1.9305264949798584 -0.37759774923324596 ;
-createNode mesh -n "L_Pinky1_GeoShape" -p "L_Pinky1_Geo";
+createNode mesh -n "L_Pinky_Knuckle_1_GeoShape" -p "L_Pinky_Knuckle_1_Geo";
 	rename -uid "EA887FF0-4423-CEB8-A156-FFB901735539";
 	setAttr -k off ".v";
 	setAttr ".iog[0].og[0].gcl" -type "componentList" 1 "f[0:351]";
@@ -26701,11 +26673,11 @@ createNode mesh -n "L_Pinky1_GeoShape" -p "L_Pinky1_Geo";
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".pd[1]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
-createNode transform -n "L_Pinky2_Geo" -p "L_Pinky1_Geo";
+createNode transform -n "L_Pinky_Knuckle_2_Geo" -p "L_Pinky_Knuckle_1_Geo";
 	rename -uid "2CA7BF61-4C71-772F-B25F-0CB45E93728E";
 	setAttr ".rp" -type "double3" 3.8508195877075204 1.3573766946792603 -0.44491708278656017 ;
 	setAttr ".sp" -type "double3" 3.8508195877075204 1.3573766946792603 -0.44491708278656017 ;
-createNode mesh -n "L_Pinky2_GeoShape" -p "L_Pinky2_Geo";
+createNode mesh -n "L_Pinky_Knuckle_2_GeoShape" -p "L_Pinky_Knuckle_2_Geo";
 	rename -uid "2CA0A25A-4812-C8DE-CB30-C0ADBF49F733";
 	setAttr -k off ".v";
 	setAttr ".iog[0].og[0].gcl" -type "componentList" 1 "f[0:399]";
@@ -28420,11 +28392,11 @@ createNode mesh -n "L_Pinky2_GeoShape" -p "L_Pinky2_Geo";
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".pd[1]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
-createNode transform -n "L_Pinky3_Geo" -p "L_Pinky2_Geo";
+createNode transform -n "L_Pinky_Knuckle_3_Geo" -p "L_Pinky_Knuckle_2_Geo";
 	rename -uid "B9A6D539-49F0-6BF1-A027-26857CA02C9E";
 	setAttr ".rp" -type "double3" 3.8110504150390634 0.8599773645401001 -0.50333911180496227 ;
 	setAttr ".sp" -type "double3" 3.8110504150390634 0.8599773645401001 -0.50333911180496227 ;
-createNode mesh -n "L_Pinky3_GeoShape" -p "L_Pinky3_Geo";
+createNode mesh -n "L_Pinky_Knuckle_3_GeoShape" -p "L_Pinky_Knuckle_3_Geo";
 	rename -uid "911D11F6-49DB-23D7-BBCB-DC95EE1A8F24";
 	setAttr -k off ".v";
 	setAttr ".iog[0].og[0].gcl" -type "componentList" 1 "f[0:359]";
@@ -35556,11 +35528,11 @@ createNode mesh -n "R_Hand_GeoShape" -p "R_Hand_Geo";
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".pd[1]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
-createNode transform -n "R_Thumb1_Geo" -p "R_Hand_Geo";
+createNode transform -n "R_Thumb_Knuckle_1_Geo" -p "R_Hand_Geo";
 	rename -uid "6950B11B-48EF-0898-4DAE-E8B827A9B7DF";
 	setAttr ".rp" -type "double3" -3.8834133148193368 2.4239704608917236 0.78716540336608909 ;
 	setAttr ".sp" -type "double3" -3.8834133148193368 2.4239704608917236 0.78716540336608909 ;
-createNode mesh -n "R_Thumb1_GeoShape" -p "R_Thumb1_Geo";
+createNode mesh -n "R_Thumb_Knuckle_1_GeoShape" -p "R_Thumb_Knuckle_1_Geo";
 	rename -uid "95134562-4A9C-B017-CC71-9FBD383666C5";
 	setAttr -k off ".v";
 	setAttr ".iog[0].og[0].gcl" -type "componentList" 1 "f[0:387]";
@@ -37215,11 +37187,11 @@ createNode mesh -n "R_Thumb1_GeoShape" -p "R_Thumb1_Geo";
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".pd[1]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
-createNode transform -n "R_Thumb2_Geo" -p "R_Thumb1_Geo";
+createNode transform -n "R_Thumb_Knuckle_2_Geo" -p "R_Thumb_Knuckle_1_Geo";
 	rename -uid "5DBB3ABF-4773-2D19-B512-32A3C4ACC8D1";
 	setAttr ".rp" -type "double3" -3.6954069137573251 2.1413235664367676 1.6237095594406132 ;
 	setAttr ".sp" -type "double3" -3.6954069137573251 2.1413235664367676 1.6237095594406132 ;
-createNode mesh -n "R_Thumb2_GeoShape" -p "R_Thumb2_Geo";
+createNode mesh -n "R_Thumb_Knuckle_2_GeoShape" -p "R_Thumb_Knuckle_2_Geo";
 	rename -uid "A8F5638A-4E92-8ED9-A25D-0BBE9C98781A";
 	setAttr -k off ".v";
 	setAttr ".iog[0].og[0].gcl" -type "componentList" 1 "f[0:359]";
@@ -38749,11 +38721,11 @@ createNode mesh -n "R_Thumb2_GeoShape" -p "R_Thumb2_Geo";
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".pd[1]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
-createNode transform -n "R_Index1_Geo" -p "R_Hand_Geo";
+createNode transform -n "R_Index_Knuckle_1_Geo" -p "R_Hand_Geo";
 	rename -uid "941D3672-45C5-C400-8370-D6A3C3CF6C2D";
 	setAttr ".rp" -type "double3" -3.8920555114746103 2.0116276741027832 0.66269838809967052 ;
 	setAttr ".sp" -type "double3" -3.8920555114746103 2.0116276741027832 0.66269838809967052 ;
-createNode mesh -n "R_Index1_GeoShape" -p "R_Index1_Geo";
+createNode mesh -n "R_Index_Knuckle_1_GeoShape" -p "R_Index_Knuckle_1_Geo";
 	rename -uid "BF9BF94D-42CB-DA2E-942B-B5AE22DF3FEE";
 	setAttr -k off ".v";
 	setAttr ".iog[0].og[0].gcl" -type "componentList" 1 "f[0:351]";
@@ -40255,11 +40227,11 @@ createNode mesh -n "R_Index1_GeoShape" -p "R_Index1_Geo";
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".pd[1]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
-createNode transform -n "R_Index2_Geo" -p "R_Index1_Geo";
+createNode transform -n "R_Index_Knuckle_2_Geo" -p "R_Index_Knuckle_1_Geo";
 	rename -uid "6E0A61C7-41FD-A6EA-F26E-309B706CE706";
 	setAttr ".rp" -type "double3" -3.8652324676513681 1.3382002115249634 0.72847878932952892 ;
 	setAttr ".sp" -type "double3" -3.8652324676513681 1.3382002115249634 0.72847878932952892 ;
-createNode mesh -n "R_Index2_GeoShape" -p "R_Index2_Geo";
+createNode mesh -n "R_Index_Knuckle_2_GeoShape" -p "R_Index_Knuckle_2_Geo";
 	rename -uid "D6FD47C2-4B5C-DC5D-DC65-44B730F8CC3E";
 	setAttr -k off ".v";
 	setAttr ".iog[0].og[0].gcl" -type "componentList" 1 "f[0:399]";
@@ -41972,11 +41944,11 @@ createNode mesh -n "R_Index2_GeoShape" -p "R_Index2_Geo";
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".pd[1]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
-createNode transform -n "R_Index3_Geo" -p "R_Index2_Geo";
+createNode transform -n "R_Index_Knuckle_3_Geo" -p "R_Index_Knuckle_2_Geo";
 	rename -uid "0E5CAF23-4BB6-CB2B-AAFB-FD97D34FC67C";
 	setAttr ".rp" -type "double3" -3.8255441188812265 0.84077012538909912 0.77706778049469016 ;
 	setAttr ".sp" -type "double3" -3.8255441188812265 0.84077012538909912 0.77706778049469016 ;
-createNode mesh -n "R_Index3_GeoShape" -p "R_Index3_Geo";
+createNode mesh -n "R_Index_Knuckle_3_GeoShape" -p "R_Index_Knuckle_3_Geo";
 	rename -uid "90514D43-44C4-DC65-F738-8EAE36854B3A";
 	setAttr -k off ".v";
 	setAttr ".iog[0].og[0].gcl" -type "componentList" 1 "f[0:359]";
@@ -43508,11 +43480,11 @@ createNode mesh -n "R_Index3_GeoShape" -p "R_Index3_Geo";
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".pd[1]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
-createNode transform -n "R_Middle1_Geo" -p "R_Hand_Geo";
+createNode transform -n "R_Middle_Knuckle_1_Geo" -p "R_Hand_Geo";
 	rename -uid "7F2EF7A0-46B9-7FCC-41CF-8F9F175BABEC";
 	setAttr ".rp" -type "double3" -4.0139513015747079 1.9942152500152588 0.13922435045242312 ;
 	setAttr ".sp" -type "double3" -4.0139513015747079 1.9942152500152588 0.13922435045242312 ;
-createNode mesh -n "R_Middle1_GeoShape" -p "R_Middle1_Geo";
+createNode mesh -n "R_Middle_Knuckle_1_GeoShape" -p "R_Middle_Knuckle_1_Geo";
 	rename -uid "7C86565F-4454-CC00-D5DA-F7BFBA8A4BE7";
 	setAttr -k off ".v";
 	setAttr ".iog[0].og[0].gcl" -type "componentList" 1 "f[0:351]";
@@ -45007,11 +44979,11 @@ createNode mesh -n "R_Middle1_GeoShape" -p "R_Middle1_Geo";
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".pd[1]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
-createNode transform -n "R_Middle2_Geo" -p "R_Middle1_Geo";
+createNode transform -n "R_Middle_Knuckle_2_Geo" -p "R_Middle_Knuckle_1_Geo";
 	rename -uid "50443495-4B3A-924C-692E-49B2BF039227";
 	setAttr ".rp" -type "double3" -3.9844713211059579 1.2669678926467896 0.13270218670368197 ;
 	setAttr ".sp" -type "double3" -3.9844713211059579 1.2669678926467896 0.13270218670368197 ;
-createNode mesh -n "R_Middle2_GeoShape" -p "R_Middle2_Geo";
+createNode mesh -n "R_Middle_Knuckle_2_GeoShape" -p "R_Middle_Knuckle_2_Geo";
 	rename -uid "17B19060-4F52-E668-582D-CE89180CB899";
 	setAttr -k off ".v";
 	setAttr ".iog[0].og[0].gcl" -type "componentList" 1 "f[0:399]";
@@ -46727,11 +46699,11 @@ createNode mesh -n "R_Middle2_GeoShape" -p "R_Middle2_Geo";
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".pd[1]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
-createNode transform -n "R_Middle3_Geo" -p "R_Middle2_Geo";
+createNode transform -n "R_Middle_Knuckle_3_Geo" -p "R_Middle_Knuckle_2_Geo";
 	rename -uid "4C4B81EF-494E-F96E-17ED-F5B77E89C6D6";
 	setAttr ".rp" -type "double3" -3.9423351287841806 0.7363663911819458 0.12794357538223269 ;
 	setAttr ".sp" -type "double3" -3.9423351287841806 0.7363663911819458 0.12794357538223269 ;
-createNode mesh -n "R_Middle3_GeoShape" -p "R_Middle3_Geo";
+createNode mesh -n "R_Middle_Knuckle_3_GeoShape" -p "R_Middle_Knuckle_3_Geo";
 	rename -uid "5B44C496-4D27-B693-35F2-E49B06891660";
 	setAttr -k off ".v";
 	setAttr ".iog[0].og[0].gcl" -type "componentList" 1 "f[0:359]";
@@ -48265,11 +48237,11 @@ createNode mesh -n "R_Middle3_GeoShape" -p "R_Middle3_Geo";
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".pd[1]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
-createNode transform -n "R_Pinky1_Geo" -p "R_Hand_Geo";
+createNode transform -n "R_Pinky_Knuckle_1_Geo" -p "R_Hand_Geo";
 	rename -uid "95EBFAB2-46D2-898B-180E-6FA7E649F03F";
 	setAttr ".rp" -type "double3" -3.8743095397949228 1.9305264949798584 -0.37759774923324596 ;
 	setAttr ".sp" -type "double3" -3.8743095397949228 1.9305264949798584 -0.37759774923324596 ;
-createNode mesh -n "R_Pinky1_GeoShape" -p "R_Pinky1_Geo";
+createNode mesh -n "R_Pinky_Knuckle_1_GeoShape" -p "R_Pinky_Knuckle_1_Geo";
 	rename -uid "0C4EEB46-4284-0927-DF62-35BF93F563DB";
 	setAttr -k off ".v";
 	setAttr ".iog[0].og[0].gcl" -type "componentList" 1 "f[0:351]";
@@ -49772,11 +49744,11 @@ createNode mesh -n "R_Pinky1_GeoShape" -p "R_Pinky1_Geo";
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".pd[1]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
-createNode transform -n "R_Pinky2_Geo" -p "R_Pinky1_Geo";
+createNode transform -n "R_Pinky_Knuckle_2_Geo" -p "R_Pinky_Knuckle_1_Geo";
 	rename -uid "A62124D6-4C04-E5F1-802F-94867787D664";
 	setAttr ".rp" -type "double3" -3.8508195877075204 1.3573766946792603 -0.44491708278656017 ;
 	setAttr ".sp" -type "double3" -3.8508195877075204 1.3573766946792603 -0.44491708278656017 ;
-createNode mesh -n "R_Pinky2_GeoShape" -p "R_Pinky2_Geo";
+createNode mesh -n "R_Pinky_Knuckle_2_GeoShape" -p "R_Pinky_Knuckle_2_Geo";
 	rename -uid "2830DABA-49A0-4F3D-7A5A-0785B519C7A9";
 	setAttr -k off ".v";
 	setAttr ".iog[0].og[0].gcl" -type "componentList" 1 "f[0:399]";
@@ -51492,11 +51464,11 @@ createNode mesh -n "R_Pinky2_GeoShape" -p "R_Pinky2_Geo";
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".pd[1]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
-createNode transform -n "R_Pinky3_Geo" -p "R_Pinky2_Geo";
+createNode transform -n "R_Pinky_Knuckle_3_Geo" -p "R_Pinky_Knuckle_2_Geo";
 	rename -uid "42CF25FA-4D8A-3D4B-19FC-32B082EB0415";
 	setAttr ".rp" -type "double3" -3.8110504150390634 0.8599773645401001 -0.50333911180496227 ;
 	setAttr ".sp" -type "double3" -3.8110504150390634 0.8599773645401001 -0.50333911180496227 ;
-createNode mesh -n "R_Pinky3_GeoShape" -p "R_Pinky3_Geo";
+createNode mesh -n "R_Pinky_Knuckle_3_GeoShape" -p "R_Pinky_Knuckle_3_Geo";
 	rename -uid "27481487-459D-ADB2-2815-54A5E979AB6C";
 	setAttr -k off ".v";
 	setAttr ".iog[0].og[0].gcl" -type "componentList" 1 "f[0:359]";
@@ -61260,11 +61232,11 @@ createNode mesh -n "Hips_GeoShape" -p "Hips_Geo";
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".pd[1]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
-createNode transform -n "R_FTLeg_Geo" -p "Hips_Geo";
+createNode transform -n "R_Front_Top_Leg_Geo" -p "Hips_Geo";
 	rename -uid "4946E77E-48F2-3258-3A8D-A78B89461E91";
 	setAttr ".rp" -type "double3" -1.0883562564849854 3.440854549407959 0.87722069025039673 ;
 	setAttr ".sp" -type "double3" -1.0883562564849854 3.440854549407959 0.87722069025039673 ;
-createNode mesh -n "R_FTLeg_GeoShape" -p "R_FTLeg_Geo";
+createNode mesh -n "R_Front_Top_Leg_GeoShape" -p "R_Front_Top_Leg_Geo";
 	rename -uid "1CABB177-4C97-B4F2-AA16-1582FD3EFB34";
 	setAttr -k off ".v";
 	setAttr ".iog[0].og[0].gcl" -type "componentList" 1 "f[0:363]";
@@ -61508,6 +61480,131 @@ createNode mesh -n "R_FTLeg_GeoShape" -p "R_FTLeg_Geo";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
 	setAttr ".covm[0]"  0 1 1;
 	setAttr ".cdvm[0]"  0 1 1;
+	setAttr -s 376 ".pt";
+	setAttr ".pt[0:165]" -type "float3"  0 -0.00639635 -0.17554088 0 -0.014828518 
+		-0.17539929 0 -0.020844145 -0.11234476 0 -0.011186184 -0.11491058 0 0.0042985436 
+		-0.17513627 0 0.0010635552 -0.11686078 0 0.014390534 -0.17429601 0 0.012622266 -0.11767228 
+		0 0.021174841 -0.1732403 0 0.020390313 -0.11711338 0 0.022833049 -0.17225786 0 0.022284549 
+		-0.11533967 0 0.018920925 -0.17160636 0 0.017797561 -0.11282113 0 0.01048736 -0.17146505 
+		0 0.0081339749 -0.11024673 0 -0.00020737176 -0.17186959 0 -0.0041147796 -0.10830607 
+		0 -0.0102979 -0.17271116 0 -0.015666936 -0.10751421 0 -0.017080842 -0.1737648 0 -0.023429682 
+		-0.10807797 0 -0.018739233 -0.17474903 0 -0.025324626 -0.10984576 0 -0.021093355 
+		-0.041621652 0 -0.029847072 -0.041681152 0 -0.028429747 -0.040557034 0 -0.020256624 
+		-0.040510044 0 -0.0099995444 -0.046212185 0 -0.01403792 -0.046221439 0 -0.0079976432 
+		-0.042893194 0 -0.0039875121 -0.04739967 0 -0.0080605606 -0.044117302 0 0.0051683076 
+		-0.047120612 0 0.0023872405 -0.049465403 0 0.0057597905 -0.048485838 0 0.015653178 
+		-0.05207444 0 0.0074165752 -0.051856045 0 0.016664578 -0.053528458 0 0.020547876 
+		-0.056393977 0 0.0097528314 -0.053930528 0 0.021731272 -0.057923753 0 0.018503888 
+		-0.058896564 0 0.0087701175 -0.055133559 0 0.019599112 -0.060503677 0 0.010068547 
+		-0.05889371 0 0.0047317012 -0.055142686 0 0.010838556 -0.060553335 0 -0.0024179816 
+		-0.056404557 0 -0.0012803945 -0.053955078 0 -0.002199352 -0.058082312 0 -0.015544071 
+		-0.05212089 0 -0.0076550348 -0.051889721 0 -0.016018454 -0.053743377 0 -0.025758691 
+		-0.047219615 0 -0.012684337 -0.049499333 0 -0.026918929 -0.048669826 0 -0.030429127 
+		-0.043006171 0 -0.015020686 -0.047424283 0 -0.031980451 -0.044249713 0 -0.02123368 
+		-0.03991789 0 -0.0081599848 -0.042499941 0 -0.030015556 -0.039937373 0 0.0057023573 
+		-0.046991747 0 0.016638981 -0.052190099 0 0.021719487 -0.056701638 0 0.019582549 
+		-0.059318244 0 0.010800593 -0.059337605 0 -0.0022730241 -0.05675542 0 -0.016135341 
+		-0.052263867 0 -0.027071983 -0.047065519 0 -0.032152519 -0.042553533 0 -0.0068659638 
+		-0.23743321 0 -0.0079004699 -0.2375571 0 -0.0060960907 -0.23514627 0 -0.0052481447 
+		-0.23504473 0 -0.005473779 -0.23662718 0 -0.0041068285 -0.23438403 0 -0.00023616606 
+		-0.23489264 0 0.00018676338 -0.23296225 0 0.0064090458 -0.23281848 0 0.0056341598 
+		-0.23126179 0 0.012681205 -0.23096029 0 0.010775829 -0.22973853 0 0.016899683 -0.22981589 
+		0 0.014233948 -0.22880045 0 0.017934117 -0.22969213 0 0.015081941 -0.22869903 0 0.015507399 
+		-0.23062213 0 0.013092651 -0.22946134 0 0.010269769 -0.23235641 0 0.008798968 -0.23088305 
+		0 0.0036245943 -0.23443075 0 0.0033515713 -0.23258339 0 -0.0026475971 -0.23628893 
+		0 -0.0017900217 -0.23410669 0 -0.0048518782 -0.23884149 0 -0.004798118 -0.23949417 
+		0 0.003793194 -0.23694885 0 0.0037548582 -0.23632501 0 -0.0044093309 -0.23935905 
+		0 0.0038574811 -0.23691162 0 -0.0031312273 -0.23891471 0 0.0040959069 -0.23677349 
+		0 0.012872965 -0.23352148 0 0.012668804 -0.23416243 0 0.011753054 -0.23438349 0 0.020059291 
+		-0.23117673 0 0.019644637 -0.23185365 0 0.017788341 -0.23238491 0 0.023388773 -0.22993055 
+		0 0.022882761 -0.23061375 0 0.020584609 -0.2313135 0 0.021969717 -0.23010901 0 0.02150671 
+		-0.23077847 0 0.019392641 -0.23145601 0 0.016182221 -0.23167029 0 0.015885282 -0.23230407 
+		0 0.014531711 -0.23277466 0 0.0075767022 -0.23419024 0 0.0075474088 -0.23477529 0 
+		0.0073045176 -0.23491584 0 -0.0015408713 -0.23700118 0 -0.0012521442 -0.2375232 0 
+		-0.00035261366 -0.23730595 0 -0.0087284464 -0.23933864 0 -0.0081549082 -0.23981014 
+		0 -0.006387955 -0.23930454 0 -0.012059359 -0.2405816 0 -0.01133816 -0.24103181 0 
+		-0.0091841398 -0.24037601 0 -0.010640509 -0.24039897 0 -0.0099738743 -0.24086846 
+		0 -0.0079920981 -0.2402333 0 -0.007443069 -0.23964024 0 -0.0085771205 -0.23977597 
+		0 -0.0059169377 -0.23875667 0 -0.00017510091 -0.23685533 0 0.0071096099 -0.23458147 
+		0 0.013985375 -0.23254433 0 0.018609911 -0.23128988 0 0.019743891 -0.23115428 0 0.01708363 
+		-0.23217358 0 0.011341817 -0.23407492 0 0.0040570945 -0.23634873 0 -0.0028186589 
+		-0.2383858 0 -0.0087166689 -0.24023366 0 -0.0075620767 -0.24009541 0 -0.0028538632 
+		-0.23881829 0 -0.0060083214 -0.2391959 0 -0.00016250249 -0.23726009 0 0.0072541172 
+		-0.23494501 0 0.014254343 -0.23287103 0 0.018962592 -0.23159385 0 0.020117123 -0.23145585 
+		0 0.017408706 -0.23249356 0 0.011562963 -0.23442928 0 0.0041462914 -0.23674431 0 
+		0.012895491 -0.23410772 0 0.020069886 -0.23173192 0 0.023393881 -0.23045813 0 0.021976944 
+		-0.23062773 0 0.016198609 -0.2321952 0 0.0076072388 -0.2347406 0 -0.0014949947 -0.23758185 
+		0 -0.0086693941 -0.23995747;
+	setAttr ".pt[166:331]" 0 -0.011993396 -0.24123138 0 -0.010576456 -0.24106158 
+		0 -0.011242776 -0.068280503 0 -0.0038124202 -0.067675903 0 -0.0055065067 -0.03279116 
+		0 -0.012936883 -0.033395827 0 0.0041415682 -0.067379944 0 0.0024474857 -0.032495268 
+		0 0.010487907 -0.067472212 0 0.0087938076 -0.032587409 0 0.013526091 -0.067927793 
+		0 0.011831985 -0.03304312 0 0.012442014 -0.068624735 0 0.010747924 -0.033739932 0 
+		0.0075262142 -0.069376208 0 0.0058321077 -0.034491535 0 9.5834686e-05 -0.069980942 
+		0 -0.0015982599 -0.035096202 0 -0.0078581702 -0.070276774 0 -0.009552245 -0.035392098 
+		0 -0.014204488 -0.070184566 0 -0.015898583 -0.035299826 0 -0.017242653 -0.069728918 
+		0 -0.018936776 -0.034844246 0 -0.016158612 -0.069032043 0 -0.017852707 -0.034147307 
+		0 -0.0023124942 0.047618616 0 -0.012370106 0.046214711 0 -0.0095177451 0.046673324 
+		0 0.0078674871 0.046502933 0 0.005015119 0.046044316 0 0.032709051 -0.001415787 0 
+		0.045548655 0.00064865517 0 0.044899642 -0.0099530909 0 0.032387897 -0.011964908 
+		0 -0.043329783 -0.0040101907 0 -0.028742528 -0.004638561 0 -0.027494546 -0.015105396 
+		0 -0.041709341 -0.01449301 0 -0.025203373 -0.03968874 0 -0.016110484 -0.040080443 
+		0 -0.010370796 -0.044812698 0 -0.016689101 -0.044540487 0 -0.017650172 -0.043084513 
+		0 -0.026586488 -0.037593376 0 -0.028909365 -0.038799345 0 -0.019264227 -0.043922503 
+		0 0.0023124942 -0.047618616 0 -0.0078674788 -0.046502929 0 -0.0086953286 -0.046932757 
+		0 -0.0041339351 -0.047389343 0 -0.0073745488 -0.047249738 0 -0.038018554 -0.024254721 
+		0 -0.02488187 -0.024820663 0 -0.021037692 -0.033310216 0 -0.032446221 -0.032818772 
+		0 -0.034181565 -0.030189794 0 -0.040016796 -0.021227559 0 -0.043372687 -0.022969849 
+		0 -0.037095975 -0.031702906 0 -0.043871544 -0.011217335 0 -0.045548644 -0.00064871792 
+		0 -0.049275108 -0.0025834178 0 -0.047502853 -0.013102653 0 0.030198496 -0.036784634 
+		0 0.021807484 -0.042522565 0 0.016246168 -0.043416753 0 0.022195004 -0.038071506 
+		0 -0.0034876361 -0.039900657 0 0.01019416 -0.0391846 0 0.0079072602 -0.044190187 
+		0 -0.0015996838 -0.044687763 0 0.00036472103 -0.04732525 0 0.0052407738 -0.047070071 
+		0 0.01237011 -0.046214774 0 0.0095177451 -0.046673324 0 -0.0084923096 -0.0043501984 
+		0 0.013456691 -0.0032014125 0 0.01362713 -0.013704921 0 -0.0077614202 -0.014824294 
+		0 0.013121059 -0.023526438 0 0.011965768 -0.032186259 0 -0.0052002799 -0.033084672 
+		0 -0.0066453395 -0.024560941 0 0.042021789 -0.020059224 0 0.037064489 -0.029175103 
+		0 0.027022799 -0.030789711 0 0.030458964 -0.021918401 0 -0.0086365659 0.045328364 
+		0 -0.011877179 0.045467969 0 -0.035329126 0.026546124 0 -0.023920616 0.026054682 
+		0 -0.026886864 0.016465994 0 -0.040023565 0.017031936 0 -0.042021777 0.020059163 
+		0 -0.037064474 0.029175105 0 -0.039978899 0.02766199 0 -0.045377687 0.018316871 0 
+		-0.044899642 0.0099530909 0 -0.048530951 0.0080677737 0 -0.028522633 0.0060650958 
+		0 -0.042737413 0.0066774818 0 -0.020846399 0.041066587 0 -0.014528116 0.04079438 
+		0 -0.019722493 0.034297567 0 -0.028815381 0.03468927 0 -0.030198481 0.036784634 0 
+		-0.021807484 0.042522565 0 -0.023421556 0.041684572 0 -0.03252136 0.035578661 0 -0.013197955 
+		0.045784887 0 0.034181565 0.030189794 0 0.040016789 0.021227559 0 0.028453967 0.019368319 
+		0 0.024139881 0.028575124 0 -0.0080831954 0.026280224 0 0.0090828529 0.02717864 0 
+		0.011116065 0.017760221 0 -0.0086503346 0.016725715 0 -0.0087895142 0.0063460697 
+		0 0.012599035 0.0074655693 0 0.043871548 0.011217272 0 0.031359795 0.0092055816 0 
+		0.00073814334 0.045647636 0 -0.0041379174 0.045392457 0 0.0037499398 0.041416887 
+		0 0.0065821512 0.035193406 0 -0.0070996368 0.034477353 0 -0.0057570045 0.040919311 
+		0 0.017650163 0.043084513 0 0.026586495 0.037593376 0 0.018582998 0.036306441 0 0.012088855 
+		0.042190321 0 -0.031359795 -0.0092055816 0 -0.032709047 0.0014157238 0 0.043329783 
+		0.0040101269 0 0.028742528 0.004638561 0 0.02852264 -0.0060650948 0 0.042737428 -0.0066774809 
+		0 0.028815374 -0.03468927 0 0.019722486 -0.034297567 0 0.014528121 -0.040794443 0 
+		0.020846406 -0.041066587 0 0.03252136 -0.035578661 0 0.023421548 -0.041684572 0 0.013197955 
+		-0.045784887 0 0.011877179 -0.045467969 0 0.0086365733 -0.045328364 0 0.040023562 
+		-0.017031999 0 0.02688686 -0.016466057 0 0.023920624 -0.026054682 0 0.035329137 -0.026546124 
+		0 0.045377687 -0.018316871 0 0.039978899 -0.02766199 0 0.049275111 0.0025833547 0 
+		0.048530947 -0.008067837 0 -0.012088855 -0.042190321 0 -0.018583002 -0.036306504 
+		0 0.0070996368 -0.034477353 0 -0.006582147 -0.035193469 0 -0.0037499398 -0.041416887 
+		0 0.0057570045 -0.040919311 0 0.0041379174 -0.045392457 0 -0.00073814334 -0.045647636 
+		0 -0.005015119 -0.046044316 0 0.0084923171 0.0043501989;
+	setAttr ".pt[332:375]" 0 -0.013456686 0.0032013492 0 -0.012599035 -0.0074655693 
+		0 0.0087895188 -0.0063461331 0 0.0080831954 -0.026280224 0 0.0086503467 -0.016725779 
+		0 -0.011116061 -0.017760284 0 -0.0090828529 -0.02717864 0 -0.024139877 -0.028575188 
+		0 -0.028453963 -0.019368382 0 0.0041339393 0.04738928 0 0.007374553 0.047249675 0 
+		0.021037702 0.033310216 0 0.02488186 0.024820663 0 0.038018562 0.024254721 0 0.032446217 
+		0.032818709 0 0.03709599 0.031702843 0 0.043372687 0.022969849 0 0.047502857 0.01310259 
+		0 0.027494552 0.015105332 0 0.041709337 0.014492947 0 0.010370796 0.044812698 0 0.016110484 
+		0.040080443 0 0.025203377 0.039688677 0 0.016689086 0.044540487 0 0.019264234 0.043922506 
+		0 0.028909357 0.038799345 0 0.0086953286 0.046932757 0 -0.030458946 0.021918338 0 
+		-0.027022799 0.030789711 0 0.0052002799 0.033084672 0 -0.011965768 0.032186259 0 
+		-0.013121055 0.023526374 0 0.0066453395 0.024560941 0 0.0077614202 0.014824294 0 
+		-0.013627126 0.013704858 0 -0.032387894 0.011964845 0 -0.0052407659 0.047070071 0 
+		-0.00036471311 0.04732525 0 -0.0079072602 0.044190187 0 -0.01019416 0.0391846 0 0.0034876361 
+		0.039900657 0 0.0015996838 0.044687763 0 -0.022194995 0.038071506 0 -0.016246168 
+		0.043416753;
 	setAttr -s 376 ".vt";
 	setAttr ".vt[0:165]"  -1.063797951 2.12739754 1.012967348 -1.11436784 2.13267565 1.07614255
 		 -1.062875628 2.6086278 1.089735866 -1.0067985058 2.58455372 1.018578649 -1.053600311 2.12508488 0.93254733
@@ -62818,11 +62915,11 @@ createNode mesh -n "R_FTLeg_GeoShape" -p "R_FTLeg_Geo";
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".pd[1]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
-createNode transform -n "R_FBLeg_Geo" -p "R_FTLeg_Geo";
+createNode transform -n "R_Front_Bottom_Leg_Geo" -p "R_Front_Top_Leg_Geo";
 	rename -uid "535F899D-4B34-8091-5834-FDA7CEA69BC2";
-	setAttr ".rp" -type "double3" -1.2467713356018066 1.5449150800704956 0.92217916250228882 ;
-	setAttr ".sp" -type "double3" -1.2467713356018066 1.5449150800704956 0.92217916250228882 ;
-createNode mesh -n "R_FBLeg_GeoShape" -p "R_FBLeg_Geo";
+	setAttr ".rp" -type "double3" -1.2467713356018066 1.5557233074716992 0.67012666258493936 ;
+	setAttr ".sp" -type "double3" -1.2467713356018066 1.5557233074716992 0.67012666258493936 ;
+createNode mesh -n "R_Front_Bottom_Leg_GeoShape" -p "R_Front_Bottom_Leg_Geo";
 	rename -uid "A6CD0007-4FC5-B39E-E506-40852CF40532";
 	setAttr -k off ".v";
 	setAttr ".iog[0].og[0].gcl" -type "componentList" 1 "f[0:363]";
@@ -63069,6 +63166,121 @@ createNode mesh -n "R_FBLeg_GeoShape" -p "R_FBLeg_Geo";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
 	setAttr ".covm[0]"  0 1 1;
 	setAttr ".cdvm[0]"  0 1 1;
+	setAttr -s 376 ".pt";
+	setAttr ".pt[0:165]" -type "float3"  0 0.042381302 -0.44916454 0 0.041900583 
+		-0.44943371 0 0.042717081 -0.44838551 0 0.043133345 -0.44814339 0 0.043409549 -0.44948775 
+		0 0.044047005 -0.44845286 0 0.046504177 -0.44931197 0 0.04677026 -0.44832855 0 0.050354902 
+		-0.44895369 0 0.05014655 -0.4480474 0 0.053930357 -0.44850859 0 0.053261522 -0.4476859 
+		0 0.05627225 -0.44809639 0 0.055291668 -0.44733855 0 0.05675301 -0.44782722 0 0.055710491 
+		-0.44709468 0 0.055244099 -0.44777322 0 0.054400355 -0.44702047 0 0.052149542 -0.44794911 
+		0 0.051694214 -0.44713971 0 0.04829862 -0.44830728 0 0.048315637 -0.44742221 0 0.044723287 
+		-0.44875234 0 0.045181125 -0.44779062 0 0.04612378 -0.45002061 0 0.046194009 -0.4503136 
+		0 0.042395759 -0.4505603 0 0.042323112 -0.45027602 0 0.046316203 -0.45028406 0 0.042630784 
+		-0.45052466 0 0.044192463 -0.44967321 0 0.044015288 -0.44967866 0 0.041137915 -0.45019367 
+		0 0.041409425 -0.45017087 0 0.043946777 -0.44939917 0 0.041066341 -0.44991693 0 0.046307277 
+		-0.45025188 0 0.042904884 -0.45047295 0 0.041776944 -0.45014381 0 0.044361208 -0.44968113 
+		0 0.048440363 -0.44912264 0 0.048300028 -0.44917026 0 0.053012423 -0.44866756 0 0.052534763 
+		-0.44874847 0 0.056677911 -0.44842994 0 0.055935621 -0.44852763 0 0.058457632 -0.4484728 
+		0 0.057594012 -0.44856712 0 0.057887264 -0.44878343 0 0.057061575 -0.44885677 0 0.055121407 
+		-0.44927892 0 0.054478981 -0.44931906 0 0.050887257 -0.44982857 0 0.050541814 -0.44982985 
+		0 0.040836442 -0.45048282 0 0.041244872 -0.45043358 0 0.042105578 -0.44989166 0 0.041599706 
+		-0.45016772 0 0.043183945 -0.45020577 0 0.046432197 -0.44999623 0 0.05047255 -0.44959632 
+		0 0.054223295 -0.44911247 0 0.056680594 -0.44867364 0 0.057187088 -0.44839704 0 0.055606827 
+		-0.44835678 0 0.052362226 -0.44856456 0 0.048321385 -0.4489654 0 0.04456652 -0.44945157 
+		0 0.041503061 -0.45040366 0 0.04201765 -0.45012346 0 0.044516146 -0.44967628 0 0.043109797 
+		-0.45044175 0 0.046407863 -0.4502275 0 0.050513148 -0.4498184 0 0.05432586 -0.44932395 
+		0 0.056824349 -0.44887677 0 0.05733905 -0.44859657 0 0.055732153 -0.44855836 0 0.052434128 
+		-0.44877273 0 0.048328843 -0.44918168 0 0.040545087 -0.45051646 0 0.040472072 -0.45023805 
+		0 0.048406493 -0.44910926 0 0.048341893 -0.44882289 0 0.053134624 -0.44863805 0 0.05307411 
+		-0.4483428 0 0.056932781 -0.44839123 0 0.056875464 -0.44808671 0 0.058783505 -0.44843504 
+		0 0.058727261 -0.44812348 0 0.058190681 -0.44875786 0 0.058132891 -0.44844395 0 0.055313211 
+		-0.44927287 0 0.05525174 -0.44896254 0 0.050922137 -0.44984239 0 0.050856035 -0.44953987 
+		0 0.0022219596 -0.27450743 0 0.0092937592 -0.2750566 0 0.012069892 -0.27670354 0 
+		0.0083662663 -0.27640077 0 -0.0022432129 -0.27480176 0 0.0059549166 -0.27654493 0 
+		0.0171823 -0.27634534 0 0.016073268 -0.27737197 0 0.023676101 -0.2780354 0 0.019303849 
+		-0.278227 0 0.026911089 -0.2796531 0 0.020895811 -0.27903932 0 0.025978947 -0.28074512 
+		0 0.020422772 -0.27959165 0 0.021165375 -0.2810123 0 0.018011425 -0.27973574 0 0.01381818 
+		-0.28038737 0 0.014307783 -0.27943286 0 0.0059788828 -0.27904999 0 0.010304478 -0.27876455 
+		0 -0.00019520991 -0.27738142 0 0.0070740092 -0.27790964 0 -0.0031316725 -0.27583909 
+		0 0.0054818317 -0.27709708 0 0.019152083 -0.33724347 0 0.013247229 -0.33619905 0 
+		-0.00129072 -0.27916059 0 0.005666241 -0.28085488 0 0.011243299 -0.33423167 0 0.015673345 
+		-0.33381677 0 0.0015366321 -0.27602559 0 -0.0036682226 -0.27638903 0 0.022462154 
+		-0.33397445 0 0.0095223049 -0.27655029 0 0.029795816 -0.33467391 0 0.018156672 -0.27783945 
+		0 0.035709281 -0.33572841 0 0.025126202 -0.27954918 0 0.038614225 -0.33684838 0 0.028557718 
+		-0.28121087 0 0.03772879 -0.33772948 0 0.027526764 -0.28237224 0 0.033289779 -0.33813384 
+		0 0.022308808 -0.28271949 0 0.026488921 -0.33795419 0 0.014305353 -0.28216133 0 0.01035447 
+		-0.33510071 0 -0.0047043213 -0.2775321 0 0.0010597315 -0.2740798 0 0.0091134859 -0.27473816 
+		0 0.017819148 -0.27619156 0 -0.0041840412 -0.27439299 0 0.024844166 -0.27805087 0 
+		0.028306218 -0.27981752 0 0.02727763 -0.28101864 0 0.022033889 -0.28133184 0 0.013980145 
+		-0.28067338 0 0.0052745263 -0.27922007 0 -0.0017505587 -0.27736083 0 -0.0052126357 
+		-0.27559382 0 0.02778516 -0.39323747 0 0.032637931 -0.39363202 0 0.025413251 -0.39266938 
+		0 0.02615482 -0.39207429 0 0.029810051 -0.39160794 0 0.035402015 -0.39139867 0 0.041434959 
+		-0.39150834 0 0.046292365 -0.39190757 0 0.048670746 -0.39248595 0 0.047930848 -0.39308673;
+	setAttr ".pt[166:331]" 0 0.044270772 -0.39354819 0 0.038672484 -0.393747 0 
+		0.0097137457 -0.28528532 0 0.013843585 -0.28442246 0 0.010575567 -0.26826644 0 0.0064457133 
+		-0.26912931 0 0.018245222 -0.28354302 0 0.014977218 -0.26738694 0 0.021739254 -0.28288269 
+		0 0.018471252 -0.26672667 0 0.02338942 -0.28261846 0 0.020121399 -0.26646239 0 0.022753565 
+		-0.282821 0 0.019485548 -0.26666498 0 0.020002097 -0.28343615 0 0.016734088 -0.26728013 
+		0 0.015872234 -0.28429899 0 0.012604209 -0.26814297 0 0.01147058 -0.28517842 0 0.008202563 
+		-0.26902241 0 0.0079765767 -0.28583881 0 0.0047085597 -0.26968279 0 0.0063264188 
+		-0.28610304 0 0.003058394 -0.26994702 0 0.0069622695 -0.28590047 0 0.003694237 -0.26974446 
+		0 0.0063517783 -0.23002118 0 0.0018199047 -0.23151077 0 0.0031496643 -0.23121132 
+		0 0.011119449 -0.22969726 0 0.0097896894 -0.22999671 0 0.025752904 -0.2493187 0 0.031738646 
+		-0.24797085 0 0.032194838 -0.25297242 0 0.026361926 -0.25428584 0 -0.0092571788 -0.25629106 
+		0 -0.0025921578 -0.25507161 0 -0.0012593621 -0.25989184 0 -0.0077541843 -0.26108024 
+		0 0.0017809537 -0.2719005 0 0.0059355488 -0.27114031 0 0.00900984 -0.27316371 0 0.0061229756 
+		-0.27369192 0 0.0057483036 -0.27362397 0 0.0012417427 -0.27180266 0 0.00012091033 
+		-0.27213386 0 0.0049694786 -0.27385402 0 0.015264676 -0.27408382 0 0.010497009 -0.27440768 
+		0 0.010097555 -0.27452573 0 0.012169834 -0.27417162 0 0.010689173 -0.27444255 0 -0.0053299312 
+		-0.26542047 0 0.00067231111 -0.26432225 0 0.0031058257 -0.26814657 0 -0.0021067909 
+		-0.26910037 0 -0.0027833211 -0.26897764 0 -0.0061089261 -0.26527911 0 -0.0077282269 
+		-0.26575759 0 -0.0041895923 -0.26939306 0 -0.0085971262 -0.26092732 0 -0.010122193 
+		-0.25613415 0 -0.011920303 -0.25666541 0 -0.01034929 -0.26144496 0 0.027335465 -0.2667141 
+		0 0.0238798 -0.27008811 0 0.021287141 -0.27067196 0 0.023604281 -0.26755431 0 0.011735978 
+		-0.27000919 0 0.018046752 -0.26872849 0 0.017425431 -0.2714878 0 0.013040327 -0.27237773 
+		0 0.014237043 -0.27376851 0 0.016486149 -0.27331212 0 0.019796547 -0.27259415 0 0.018466786 
+		-0.27289361 0 0.0067131743 -0.25325692 0 0.016837228 -0.25120237 0 0.017673915 -0.25612149 
+		0 0.007808371 -0.25812352 0 0.018169641 -0.26083782 0 0.018301304 -0.26512057 0 0.010383403 
+		-0.26672736 0 0.0090523204 -0.26268801 0 0.031589258 -0.2579276 0 0.029955514 -0.26259318 
+		0 0.025274126 -0.26364735 0 0.026198728 -0.25914142 0 0.0034927295 -0.23127472 0 
+		0.0020120835 -0.23154564 0 -0.007662545 -0.24163455 0 -0.0024499046 -0.24068077 0 
+		-0.0031915549 -0.24522047 0 -0.0091937976 -0.24631868 0 -0.0099728042 -0.24617742 
+		0 -0.0083390595 -0.24151181 0 -0.0097453305 -0.24192724 0 -0.011592109 -0.24665581 
+		0 -0.010578386 -0.25113252 0 -0.012330561 -0.25165021 0 -0.0032406328 -0.2500971 
+		0 -0.0097354548 -0.25128549 0 -0.0018886816 -0.23408486 0 0.00099819864 -0.23355661 
+		0 -0.001025208 -0.23672847 0 -0.0051798066 -0.2374887 0 -0.005718994 -0.23739089 
+		0 -0.0022633376 -0.23401688 0 -0.0030421782 -0.23424694 0 -0.0068398304 -0.23772199 
+		0 0.0014204583 -0.23162882 0 0.024399783 -0.23512736 0 0.027725393 -0.23882581 0 
+		0.02233487 -0.24003965 0 0.019718403 -0.23618153 0 0.0048276647 -0.23926154 0 0.01274557 
+		-0.23765469 0 0.014305775 -0.24173604 0 0.0051884502 -0.2435863 0 0.0058271079 -0.24832878 
+		0 0.015692651 -0.24632674 0 0.030213565 -0.24317767 0 0.024380663 -0.24449112 0 0.0078090411 
+		-0.23041515 0 0.0055599543 -0.23087163 0 0.009413789 -0.23188072 0 0.011085995 -0.23431665 
+		0 0.004775221 -0.23559736 0 0.0050286865 -0.23277064 0 0.015868159 -0.23048103 0 
+		0.020374708 -0.23230226 0 0.016643524 -0.23314248 0 0.013275496 -0.23106481 0 -0.0027642078 
+		-0.25961387 0 -0.0041364324 -0.25478628 0 0.030873628 -0.24781388 0 0.02420862 -0.24903341 
+		0 0.024857076 -0.25400785 0 0.031351902 -0.25281951 0 0.026796253 -0.26661628 0 0.022641659 
+		-0.26737648 0 0.020618256 -0.27054837 0 0.023505129 -0.27002016 0 0.0284563 -0.26638299 
+		0 0.02465862 -0.269858 0 0.020196004 -0.27247617 0 0.019604376 -0.27255929 0 0.018123725 
+		-0.27283028 0 0.030810248 -0.25778624 0 0.02480801 -0.25888455 0 0.024066368 -0.26342425 
+		0 0.029278992 -0.26247045 0 0.033208556 -0.25744921 0 0.031361781 -0.26217771 0 0.033536758 
+		-0.24743959 0 0.033947017 -0.25245479 0 0.0083409548 -0.27304015 0 0.0049729389 -0.27096254 
+		0 0.016841242 -0.26850763 0 0.010530456 -0.2697883 0 0.012202666 -0.27222428 0 0.016587768 
+		-0.27133435 0 0.016056517 -0.27323338 0 0.013807409 -0.27368978 0 0.011826766 -0.27410829 
+		0 0.014903288 -0.25084805;
+	setAttr ".pt[332:375]" 0 0.0047792229 -0.25290257 0 0.0059238034 -0.25777826 
+		0 0.01578935 -0.25577617 0 0.01678879 -0.26484346 0 0.016428005 -0.2605187 0 0.0073106796 
+		-0.26236895 0 0.0088708801 -0.26645026 0 0.0018980589 -0.26792347 0 -0.00071841449 
+		-0.26406536 0 0.0094466237 -0.22993332 0 0.010927282 -0.22966245 0 0.018510638 -0.23595841 
+		0 0.020944152 -0.23978277 0 0.02694639 -0.23868448 0 0.023723261 -0.23500463 0 0.025806051 
+		-0.23471187 0 0.029344689 -0.23834743 0 0.031965762 -0.24266003 0 0.022875804 -0.2442131 
+		0 0.029370632 -0.24302477 0 0.012606611 -0.23094124 0 0.015680915 -0.23296468 0 0.019835496 
+		-0.23220445 0 0.015493487 -0.23041306 0 0.016646972 -0.23025092 0 0.021495545 -0.23197114 
+		0 0.011518899 -0.22957928 0 -0.0045822649 -0.24496359 0 -0.0036576714 -0.24045765 
+		0 0.011233048 -0.23737757 0 0.003315158 -0.23898442 0 0.0034468137 -0.24326718 0 
+		0.012564139 -0.24141692 0 0.013808092 -0.24598147 0 0.0039425404 -0.24798352 0 -0.0047454671 
+		-0.24981909 0 0.0051303129 -0.23079289 0 0.0073794113 -0.23033647 0 0.0041910247 
+		-0.2326172 0 0.003569711 -0.23537651 0 0.0098804776 -0.2340958 0 0.0085761268 -0.23172729 
+		0 -0.0019878338 -0.23655067 0 0.00032931365 -0.23343305;
 	setAttr -s 376 ".vt";
 	setAttr ".vt[0:165]"  -1.29694402 0.050677419 0.78391939 -1.26875126 0.048898816 0.78765965
 		 -1.26916718 0.056352735 0.78101134 -1.29378319 0.057960629 0.77776808 -1.24211216 0.047739148 0.77636856
@@ -64379,11 +64591,11 @@ createNode mesh -n "R_FBLeg_GeoShape" -p "R_FBLeg_Geo";
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".pd[1]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
-createNode transform -n "R_FFoot_Geo" -p "R_FBLeg_Geo";
+createNode transform -n "R_Front_Foot_Geo" -p "R_Front_Bottom_Leg_Geo";
 	rename -uid "66047C90-4802-FE16-7880-28A60258870D";
-	setAttr ".rp" -type "double3" -1.2744492888450623 0.056468602269887924 0.73102289438247681 ;
-	setAttr ".sp" -type "double3" -1.2744492888450623 0.056468602269887924 0.73102289438247681 ;
-createNode mesh -n "R_FFoot_GeoShape" -p "R_FFoot_Geo";
+	setAttr ".rp" -type "double3" -1.2744492888450623 0.10581979998540733 0.28309506814144164 ;
+	setAttr ".sp" -type "double3" -1.2744492888450623 0.10581979998540733 0.28309506814144164 ;
+createNode mesh -n "R_Front_Foot_GeoShape" -p "R_Front_Foot_Geo";
 	rename -uid "A36002BA-4B71-D5BC-D4E6-DD932373CB89";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
@@ -64506,6 +64718,61 @@ createNode mesh -n "R_FFoot_GeoShape" -p "R_FFoot_Geo";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
 	setAttr ".covm[0]"  0 1 1;
 	setAttr ".cdvm[0]"  0 1 1;
+	setAttr -s 184 ".pt";
+	setAttr ".pt[0:165]" -type "float3"  0 0.04784146 -0.44046411 0 0.046305206 
+		-0.44096893 0 0.04675597 -0.44086742 0 0.049457602 -0.4403542 0 0.049006831 -0.4404557 
+		0 0.054417215 -0.4470011 0 0.056446288 -0.44654417 0 0.056600727 -0.44823867 0 0.054623462 
+		-0.44868389 0 0.042549327 -0.4493646 0 0.044808663 -0.44895124 0 0.045260262 -0.45058423 
+		0 0.043058615 -0.45098707 0 0.04629036 -0.4546524 0 0.047698706 -0.4543947 0 0.048740733 
+		-0.45508003 0 0.047762133 -0.45525914 0 0.047635119 -0.45523608 0 0.046107575 -0.4546192 
+		0 0.045727629 -0.45473149 0 0.047371116 -0.45531407 0 0.050860938 -0.45539147 0 0.049244788 
+		-0.45550138 0 0.049109384 -0.45554143 0 0.049811855 -0.45542136 0 0.049309939 -0.45551324 
+		0 0.043880198 -0.45245737 0 0.045914866 -0.45208505 0 0.046739623 -0.45338061 0 0.044972617 
+		-0.45370394 0 0.044743288 -0.45366234 0 0.043616135 -0.45240948 0 0.043067217 -0.45257163 
+		0 0.044266585 -0.45380315 0 0.042772871 -0.45093521 0 0.042256102 -0.44931144 0 0.041646574 
+		-0.44949153 0 0.04217891 -0.45111069 0 0.054952949 -0.45289427 0 0.053781424 -0.45403746 
+		0 0.052902557 -0.4542354 0 0.053688135 -0.45317909 0 0.049664963 -0.45401129 0 0.051804222 
+		-0.45357716 0 0.051593486 -0.45451194 0 0.05010701 -0.45481363 0 0.050512608 -0.45528474 
+		0 0.051275022 -0.45512998 0 0.052397195 -0.45488665 0 0.051946424 -0.45498815 0 0.047963034 
+		-0.44833606 0 0.051394939 -0.44763964 0 0.051678352 -0.4493061 0 0.048334084 -0.44998479 
+		0 0.051846195 -0.45090389 0 0.051890664 -0.45235485 0 0.049206611 -0.45289952 0 0.048755564 
+		-0.45153108 0 0.056395255 -0.44991741 0 0.055841256 -0.45149809 0 0.054254338 -0.45185545 
+		0 0.054567941 -0.45032886 0 0.046872262 -0.44088891 0 0.046370339 -0.44098079 0 0.04309047 
+		-0.44439912 0 0.044857465 -0.44407585 0 0.044605888 -0.44561386 0 0.042571213 -0.44598612 
+		0 0.04230715 -0.44593823 0 0.042861138 -0.44435754 0 0.042384434 -0.44449836 0 0.041758224 
+		-0.44610038 0 0.042101674 -0.44761699 0 0.041507706 -0.44779244 0 0.044589065 -0.44726598 
+		0 0.042387411 -0.44766882 0 0.045047984 -0.44184119 0 0.046026584 -0.4416621 0 0.045340564 
+		-0.44273683 0 0.043932222 -0.44299448 0 0.04374944 -0.44296134 0 0.044920966 -0.44181812 
+		0 0.044656955 -0.44189611 0 0.043369491 -0.44307357 0 0.046169791 -0.44100899 0 0.053959105 
+		-0.44219333 0 0.05508627 -0.44344616 0 0.053258948 -0.44385761 0 0.052372187 -0.44255066 
+		0 0.047324453 -0.44359472 0 0.050008502 -0.44305006 0 0.050537217 -0.44443271 0 0.047446582 
+		-0.4450599 0 0.04766288 -0.44666654 0 0.051007148 -0.44598785 0 0.055929523 -0.44492042 
+		0 0.053952251 -0.44536564 0 0.048335422 -0.44059756 0 0.047573015 -0.44075227 0 0.048879348 
+		-0.44109404 0 0.04944608 -0.44191921 0 0.047306824 -0.44235337 0 0.047392856 -0.44139567 
+		0 0.051067274 -0.4406195 0 0.052594814 -0.44123638 0 0.05133 -0.4415212 0 0.050188396 
+		-0.44081745 0 0.044750143 -0.45049 0 0.044285182 -0.44885454 0 0.056153063 -0.44649097 
+		0 0.053893734 -0.44690442 0 0.054113325 -0.44858959 0 0.056314979 -0.44818676 0 0.054770168 
+		-0.45286113 0 0.053361833 -0.45311883 0 0.05267581 -0.4541935 0 0.053654414 -0.45401448 
+		0 0.055332903 -0.45278203 0 0.054045435 -0.45395947 0 0.052532602 -0.45484665 0 0.052332055 
+		-0.45487484 0 0.051830135 -0.45496666 0 0.056131177 -0.44986945 0 0.054096509 -0.45024177 
+		0 0.053844929 -0.45177981 0 0.055611923 -0.45145649 0 0.056944165 -0.44975519 0 0.056317959 
+		-0.45135722 0 0.05705582 -0.4463641 0 0.057194687 -0.44806314 0 0.048513997 -0.45503819 
+		0 0.047372397 -0.45433444 0 0.051395573 -0.4535023 0 0.04925631 -0.45393637 0 0.049823049 
+		-0.45476162 0 0.051309533 -0.45445991 0 0.051129378 -0.45510334 0 0.050366968 -0.45525804 
+		0 0.049695563 -0.45539993 0 0.050739355 -0.44751951 0 0.047307454 -0.44821599 0 0.047695242 
+		-0.44986773 0 0.051039509 -0.44918904 0 0.051377937 -0.45226085 0 0.051255811 -0.45079574 
+		0 0.04816518 -0.45142296 0 0.048693892 -0.45280558 0 0.046330206 -0.45330498 0 0.045443442 
+		-0.45199797 0 0.048890539 -0.44043422 0 0.049392454 -0.4403424 0 0.051962771 -0.44247502 
+		0 0.052787524 -0.44377056 0 0.054822192 -0.44339824 0 0.05372978 -0.4421517 0 0.054435816 
+		-0.44205245 0 0.055635177 -0.443284 0 0.056523483 -0.44474491 0 0.053442135 -0.44527143 
+		0 0.055643786 -0.44486859 0 0.049961656 -0.44077554 0 0.051003683 -0.44146088 0 0.052412033 
+		-0.44120324 0 0.05094026 -0.44059652 0 0.051331274 -0.44054151 0 0.052974768 -0.44112414;
+	setAttr ".pt[166:183]" 0 0.049593013 -0.44031423 0 0.044134453 -0.44552678 
+		0 0.044448055 -0.44400021 0 0.049495779 -0.44295609 0 0.046811733 -0.44350082 0 0.046856195 
+		-0.44495171 0 0.049946826 -0.44432449 0 0.050368313 -0.44587082 0 0.047024049 -0.4465495 
+		0 0.044078939 -0.44717178 0 0.047427371 -0.44072559 0 0.048189793 -0.44057089 0 0.047108904 
+		-0.44134367 0 0.046898175 -0.4422785 0 0.04903743 -0.44184434 0 0.048595384 -0.44104204 
+		0 0.045014258 -0.44267651 0 0.04579984 -0.44162023;
 	setAttr -s 184 ".vt";
 	setAttr ".vt[0:165]"  -1.27352476 0.11320555 0.73861492 -1.27877402 0.11018717 0.75039011
 		 -1.28348291 0.11072314 0.74695837 -1.26832426 0.11322176 0.72643799 -1.26361549 0.1126858 0.72986978
@@ -65207,11 +65474,11 @@ createNode mesh -n "R_FFoot_GeoShape" -p "R_FFoot_Geo";
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".pd[1]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
-createNode transform -n "L_FTLeg_Geo" -p "Hips_Geo";
+createNode transform -n "L_Front_Top_Leg_Geo" -p "Hips_Geo";
 	rename -uid "7F310613-4FE4-C37F-66AC-088184E480BA";
 	setAttr ".rp" -type "double3" 1.0883562564849854 3.440854549407959 0.87722069025039673 ;
 	setAttr ".sp" -type "double3" 1.0883562564849854 3.440854549407959 0.87722069025039673 ;
-createNode mesh -n "L_FTLeg_GeoShape" -p "L_FTLeg_Geo";
+createNode mesh -n "L_Front_Top_Leg_GeoShape" -p "L_Front_Top_Leg_Geo";
 	rename -uid "EECBCA52-4AFE-C62A-9FCB-2596FC9E9949";
 	setAttr -k off ".v";
 	setAttr ".iog[0].og[0].gcl" -type "componentList" 1 "f[0:363]";
@@ -66765,11 +67032,11 @@ createNode mesh -n "L_FTLeg_GeoShape" -p "L_FTLeg_Geo";
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".pd[1]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
-createNode transform -n "L_FBLeg_Geo" -p "L_FTLeg_Geo";
+createNode transform -n "L_Front_Bottom_Leg_Geo" -p "L_Front_Top_Leg_Geo";
 	rename -uid "030DC914-4C58-0EA3-6003-238CF2889038";
 	setAttr ".rp" -type "double3" 1.2467713356018066 1.5449150800704956 0.92217916250228882 ;
 	setAttr ".sp" -type "double3" 1.2467713356018066 1.5449150800704956 0.92217916250228882 ;
-createNode mesh -n "L_FBLeg_GeoShape" -p "L_FBLeg_Geo";
+createNode mesh -n "L_Front_Bottom_Leg_GeoShape" -p "L_Front_Bottom_Leg_Geo";
 	rename -uid "B17D02E1-4F83-0CC4-58C8-58B89351635E";
 	setAttr -k off ".v";
 	setAttr ".iog[0].og[0].gcl" -type "componentList" 1 "f[0:363]";
@@ -68329,11 +68596,11 @@ createNode mesh -n "L_FBLeg_GeoShape" -p "L_FBLeg_Geo";
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".pd[1]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
-createNode transform -n "L_FFoot_Geo" -p "L_FBLeg_Geo";
+createNode transform -n "L_Front_Foot_Geo" -p "L_Front_Bottom_Leg_Geo";
 	rename -uid "8BCD1CDE-4912-8F36-1C0A-B99C893730B3";
 	setAttr ".rp" -type "double3" 1.2744492888450623 0.056468602269887924 0.73102289438247681 ;
 	setAttr ".sp" -type "double3" 1.2744492888450623 0.056468602269887924 0.73102289438247681 ;
-createNode mesh -n "L_FFoot_GeoShape" -p "L_FFoot_Geo";
+createNode mesh -n "L_Front_Foot_GeoShape" -p "L_Front_Foot_Geo";
 	rename -uid "B1973027-49DE-5980-45BB-359A5510A2D1";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
@@ -69157,11 +69424,11 @@ createNode mesh -n "L_FFoot_GeoShape" -p "L_FFoot_Geo";
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".pd[1]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
-createNode transform -n "L_BTLeg_Geo" -p "Hips_Geo";
+createNode transform -n "L_Back_Top_Leg_Geo" -p "Hips_Geo";
 	rename -uid "5D633318-492D-AF66-DF48-6BAAD82F9986";
 	setAttr ".rp" -type "double3" 1.0883562564849854 3.440854549407959 -0.87722069025039673 ;
 	setAttr ".sp" -type "double3" 1.0883562564849854 3.440854549407959 -0.87722069025039673 ;
-createNode mesh -n "L_BTLeg_GeoShape" -p "L_BTLeg_Geo";
+createNode mesh -n "L_Back_Top_Leg_GeoShape" -p "L_Back_Top_Leg_Geo";
 	rename -uid "FDE6C12C-46AB-E3D0-9D22-4893B937E186";
 	setAttr -k off ".v";
 	setAttr ".iog[0].og[0].gcl" -type "componentList" 1 "f[0:363]";
@@ -70715,11 +70982,11 @@ createNode mesh -n "L_BTLeg_GeoShape" -p "L_BTLeg_Geo";
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".pd[1]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
-createNode transform -n "L_BBLeg_Geo" -p "L_BTLeg_Geo";
+createNode transform -n "L_Back_Bottom_Leg_Geo" -p "L_Back_Top_Leg_Geo";
 	rename -uid "2478E528-4C13-FFB0-0A62-FA8184FF0595";
 	setAttr ".rp" -type "double3" 1.2467713356018066 1.5449150800704956 -0.92217916250228882 ;
 	setAttr ".sp" -type "double3" 1.2467713356018066 1.5449150800704956 -0.92217916250228882 ;
-createNode mesh -n "L_BBLeg_GeoShape" -p "L_BBLeg_Geo";
+createNode mesh -n "L_Back_Bottom_Leg_GeoShape" -p "L_Back_Bottom_Leg_Geo";
 	rename -uid "2FAC376F-4223-4D53-9E67-A19A45CC35C9";
 	setAttr -k off ".v";
 	setAttr ".iog[0].og[0].gcl" -type "componentList" 1 "f[0:363]";
@@ -72275,11 +72542,11 @@ createNode mesh -n "L_BBLeg_GeoShape" -p "L_BBLeg_Geo";
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".pd[1]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
-createNode transform -n "L_BFoot_Geo" -p "L_BBLeg_Geo";
+createNode transform -n "L_Back_Foot_Geo" -p "L_Back_Bottom_Leg_Geo";
 	rename -uid "7AB3940C-4F08-FC7D-36A5-3DB6A87B4FCF";
 	setAttr ".rp" -type "double3" 1.2744492888450623 0.056468602269887924 -0.73102289438247681 ;
 	setAttr ".sp" -type "double3" 1.2744492888450623 0.056468602269887924 -0.73102289438247681 ;
-createNode mesh -n "L_BFoot_GeoShape" -p "L_BFoot_Geo";
+createNode mesh -n "L_Back_Foot_GeoShape" -p "L_Back_Foot_Geo";
 	rename -uid "D259735C-4AA6-C308-699E-7DBA320CEAA8";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
@@ -73107,11 +73374,11 @@ createNode mesh -n "L_BFoot_GeoShape" -p "L_BFoot_Geo";
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".pd[1]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
-createNode transform -n "R_BTLeg_Geo" -p "Hips_Geo";
+createNode transform -n "R_Back_Top_Leg_Geo" -p "Hips_Geo";
 	rename -uid "0C1FFA08-4A65-BBD1-4DD9-0FA5DC2DD91F";
 	setAttr ".rp" -type "double3" -1.0883562564849854 3.440854549407959 -0.87722069025039673 ;
 	setAttr ".sp" -type "double3" -1.0883562564849854 3.440854549407959 -0.87722069025039673 ;
-createNode mesh -n "R_BTLeg_GeoShape" -p "R_BTLeg_Geo";
+createNode mesh -n "R_Back_Top_Leg_GeoShape" -p "R_Back_Top_Leg_Geo";
 	rename -uid "6281079D-4CED-EB42-8953-E5A68A3C9C02";
 	setAttr -k off ".v";
 	setAttr ".iog[0].og[0].gcl" -type "componentList" 1 "f[0:363]";
@@ -74666,11 +74933,11 @@ createNode mesh -n "R_BTLeg_GeoShape" -p "R_BTLeg_Geo";
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".pd[1]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
-createNode transform -n "R_BBLeg_Geo" -p "R_BTLeg_Geo";
+createNode transform -n "R_Back_Bottom_Leg_Geo" -p "R_Back_Top_Leg_Geo";
 	rename -uid "8273C0B1-44EC-2B8D-1A00-069B37A2032C";
 	setAttr ".rp" -type "double3" -1.2467713356018066 1.5449150800704956 -0.92217916250228882 ;
 	setAttr ".sp" -type "double3" -1.2467713356018066 1.5449150800704956 -0.92217916250228882 ;
-createNode mesh -n "R_BBLeg_GeoShape" -p "R_BBLeg_Geo";
+createNode mesh -n "R_Back_Bottom_Leg_GeoShape" -p "R_Back_Bottom_Leg_Geo";
 	rename -uid "BF701F3D-4631-29F0-4EF7-A087EB550275";
 	setAttr -k off ".v";
 	setAttr ".iog[0].og[0].gcl" -type "componentList" 1 "f[0:363]";
@@ -76228,11 +76495,11 @@ createNode mesh -n "R_BBLeg_GeoShape" -p "R_BBLeg_Geo";
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".pd[1]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
-createNode transform -n "R_BFoot_Geo" -p "R_BBLeg_Geo";
+createNode transform -n "R_Back_Foot_Geo" -p "R_Back_Bottom_Leg_Geo";
 	rename -uid "2B34D979-4745-8B08-AE1D-D0826E7D704C";
 	setAttr ".rp" -type "double3" -1.2744492888450623 0.056468602269887924 -0.73102289438247681 ;
 	setAttr ".sp" -type "double3" -1.2744492888450623 0.056468602269887924 -0.73102289438247681 ;
-createNode mesh -n "R_BFoot_GeoShape" -p "R_BFoot_Geo";
+createNode mesh -n "R_Back_Foot_GeoShape" -p "R_Back_Foot_Geo";
 	rename -uid "EE5D924D-4B02-B6BE-9BEA-7FA019AEAA30";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
@@ -77056,20 +77323,20 @@ createNode mesh -n "R_BFoot_GeoShape" -p "R_BFoot_Geo";
 	setAttr ".pd[1]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode lightLinker -s -n "lightLinker1";
-	rename -uid "BB3899D6-4070-422B-7C3D-9CB16599345C";
+	rename -uid "85605FD7-4962-4A14-B4F6-8BB8028660AC";
 	setAttr -s 3 ".lnk";
 	setAttr -s 3 ".slnk";
 createNode shapeEditorManager -n "shapeEditorManager";
-	rename -uid "E2CEE7C0-4A69-5E83-7800-85A011E25D09";
+	rename -uid "89E6602E-4165-2D34-00B4-D3B985AA6ABF";
 createNode poseInterpolatorManager -n "poseInterpolatorManager";
-	rename -uid "0562C9A7-45B7-D964-E04D-B3ADFBE2362B";
+	rename -uid "5DC5DEFA-426A-E82E-F982-84B1D46862DB";
 createNode displayLayerManager -n "layerManager";
-	rename -uid "5E163198-4646-E09E-119E-CB9CF7341184";
+	rename -uid "3A5E88D7-48B3-0A66-5CBA-569908078956";
 createNode displayLayer -n "defaultLayer";
 	rename -uid "CF9A27CC-42DF-4B4D-2043-A89C5C37D441";
 	setAttr ".ufem" -type "stringArray" 0  ;
 createNode renderLayerManager -n "renderLayerManager";
-	rename -uid "03446037-4300-BC08-A3B8-19BFD4153423";
+	rename -uid "1DFBC852-4971-3FA3-82F9-7E9EA2B624E6";
 createNode renderLayer -n "defaultRenderLayer";
 	rename -uid "65FD157D-42F1-4262-A56F-29AA5F0A0AD7";
 	setAttr ".g" yes;
@@ -77127,7 +77394,7 @@ createNode script -n "uiConfigurationScriptNode";
 		+ "            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -bluePencil 1\n            -greasePencils 0\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 1\n            -height 1\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Persp View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"|persp\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n"
 		+ "            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 32768\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n"
 		+ "            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -controllers 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n"
-		+ "            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -bluePencil 1\n            -greasePencils 0\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 2252\n            -height 1615\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"ToggledOutliner\")) `;\n\tif (\"\" != $panelName) {\n"
+		+ "            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -bluePencil 1\n            -greasePencils 0\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 2111\n            -height 1467\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"ToggledOutliner\")) `;\n\tif (\"\" != $panelName) {\n"
 		+ "\t\t$label = `panel -q -label $panelName`;\n\t\toutlinerPanel -edit -l (localizedPanelLabel(\"ToggledOutliner\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        outlinerEditor -e \n            -showShapes 0\n            -showAssignedMaterials 0\n            -showTimeEditor 1\n            -showReferenceNodes 1\n            -showReferenceMembers 1\n            -showAttributes 0\n            -showConnected 0\n            -showAnimCurvesOnly 0\n            -showMuteInfo 0\n            -organizeByLayer 1\n            -organizeByClip 1\n            -showAnimLayerWeight 1\n            -autoExpandLayers 1\n            -autoExpand 0\n            -showDagOnly 1\n            -showAssets 1\n            -showContainedOnly 1\n            -showPublishedAsConnected 0\n            -showParentContainers 0\n            -showContainerContents 1\n            -ignoreDagHierarchy 0\n            -expandConnections 0\n            -showUpstreamCurves 1\n            -showUnitlessCurves 1\n            -showCompounds 1\n            -showLeafs 1\n"
 		+ "            -showNumericAttrsOnly 0\n            -highlightActive 1\n            -autoSelectNewObjects 0\n            -doNotSelectNewObjects 0\n            -dropIsParent 1\n            -transmitFilters 0\n            -setFilter \"defaultSetFilter\" \n            -showSetMembers 1\n            -allowMultiSelection 1\n            -alwaysToggleSelect 0\n            -directSelect 0\n            -isSet 0\n            -isSetMember 0\n            -showUfeItems 1\n            -displayMode \"DAG\" \n            -expandObjects 0\n            -setsIgnoreFilters 1\n            -containersIgnoreFilters 0\n            -editAttrName 0\n            -showAttrValues 0\n            -highlightSecondary 0\n            -showUVAttrsOnly 0\n            -showTextureNodesOnly 0\n            -attrAlphaOrder \"default\" \n            -animLayerFilterOptions \"allAffecting\" \n            -sortOrder \"none\" \n            -longNames 0\n            -niceNames 1\n            -showNamespace 1\n            -showPinIcons 0\n            -mapMotionTrails 0\n            -ignoreHiddenAttribute 0\n"
 		+ "            -ignoreOutlinerColor 0\n            -renderFilterVisible 0\n            -renderFilterIndex 0\n            -selectionOrder \"chronological\" \n            -expandAttribute 0\n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"Outliner\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\toutlinerPanel -edit -l (localizedPanelLabel(\"Outliner\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        outlinerEditor -e \n            -showShapes 0\n            -showAssignedMaterials 0\n            -showTimeEditor 1\n            -showReferenceNodes 0\n            -showReferenceMembers 0\n            -showAttributes 0\n            -showConnected 0\n            -showAnimCurvesOnly 0\n            -showMuteInfo 0\n            -organizeByLayer 1\n            -organizeByClip 1\n            -showAnimLayerWeight 1\n            -autoExpandLayers 1\n            -autoExpand 0\n"
@@ -77154,8 +77421,8 @@ createNode script -n "uiConfigurationScriptNode";
 		+ "                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -controllers 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n"
 		+ "                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -bluePencil 1\n                -greasePencils 0\n                -shadows 0\n                -captureSequenceNumber -1\n                -width 0\n                -height 0\n                -sceneRenderFilter 0\n                -displayMode \"centerEye\" \n                -viewColor 0 0 0 1 \n                -useCustomBackground 1\n                $editorName;\n            stereoCameraView -e -viewSelected 0 $editorName;\n            stereoCameraView -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName; };\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\tif ($useSceneConfig) {\n"
 		+ "        string $configName = `getPanel -cwl (localizedPanelLabel(\"Current Layout\"))`;\n        if (\"\" != $configName) {\n\t\t\tpanelConfiguration -edit -label (localizedPanelLabel(\"Current Layout\")) \n\t\t\t\t-userCreated false\n\t\t\t\t-defaultImage \"\"\n\t\t\t\t-image \"\"\n\t\t\t\t-sc false\n\t\t\t\t-configString \"global string $gMainPane; paneLayout -e -cn \\\"single\\\" -ps 1 100 100 $gMainPane;\"\n\t\t\t\t-removeAllPanels\n\t\t\t\t-ap false\n\t\t\t\t\t(localizedPanelLabel(\"Persp View\")) \n\t\t\t\t\t\"modelPanel\"\n"
-		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 32768\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -bluePencil 1\\n    -greasePencils 0\\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 2252\\n    -height 1615\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
-		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 32768\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -bluePencil 1\\n    -greasePencils 0\\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 2252\\n    -height 1615\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
+		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 32768\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -bluePencil 1\\n    -greasePencils 0\\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 2111\\n    -height 1467\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
+		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 32768\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -bluePencil 1\\n    -greasePencils 0\\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 2111\\n    -height 1467\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
 		+ "\t\t\t\t$configName;\n\n            setNamedPanelLayout (localizedPanelLabel(\"Current Layout\"));\n        }\n\n        panelHistory -e -clear mainPanelHistory;\n        sceneUIReplacement -clear;\n\t}\n\n\ngrid -spacing 5 -size 12 -divisions 5 -displayAxes yes -displayGridLines yes -displayDivisionLines yes -displayPerspectiveLabels no -displayOrthographicLabels no -displayAxesBold yes -perspectiveLabelPosition axis -orthographicLabelPosition edge;\nviewManip -drawCompass 0 -compassAngle 0 -frontParameters \"\" -homeParameters \"\" -selectionLockParameters \"\";\n}\n");
 	setAttr ".st" 3;
 createNode script -n "sceneConfigurationScriptNode";
@@ -77191,7 +77458,6 @@ createNode cluster -n "cluster11";
 	rename -uid "773D0EBD-484C-25B3-445D-379193E0B96D";
 createNode cluster -n "cluster14";
 	rename -uid "DCD46540-48AB-71A7-44F6-89AEE76173FA";
-	setAttr -s 2 ".ip";
 createNode groupId -n "groupId468";
 	rename -uid "BDFB5B37-4F14-4890-5B44-4C83941CD7F2";
 	setAttr ".ihi" 0;
@@ -77396,7 +77662,7 @@ select -ne :initialShadingGroup;
 	setAttr -k on ".vwm";
 	setAttr -k on ".tpv";
 	setAttr -k on ".uit";
-	setAttr -s 50 ".dsm";
+	setAttr -s 48 ".dsm";
 	setAttr -k on ".mwc";
 	setAttr -cb on ".an";
 	setAttr -cb on ".il";
@@ -77589,7 +77855,6 @@ select -ne :hardwareRenderGlobals;
 	setAttr -k on ".hwel";
 select -ne :ikSystem;
 	setAttr -s 4 ".sol";
-connectAttr ":initialShadingGroup.mwc" "polySurfaceShape34.iog.og[0].gco";
 connectAttr "groupId468.id" "B_Torso_GeoShape.iog.og[0].gid";
 connectAttr ":initialShadingGroup.mwc" "B_Torso_GeoShape.iog.og[0].gco";
 connectAttr "groupId469.id" "U_Torso_GeoShape.iog.og[0].gid";
@@ -77600,80 +77865,106 @@ connectAttr "groupId478.id" "L_Forearm_GeoShape.iog.og[0].gid";
 connectAttr ":initialShadingGroup.mwc" "L_Forearm_GeoShape.iog.og[0].gco";
 connectAttr "groupId484.id" "L_Hand_GeoShape.iog.og[0].gid";
 connectAttr ":initialShadingGroup.mwc" "L_Hand_GeoShape.iog.og[0].gco";
-connectAttr "groupId486.id" "L_Thumb1_GeoShape.iog.og[0].gid";
-connectAttr ":initialShadingGroup.mwc" "L_Thumb1_GeoShape.iog.og[0].gco";
-connectAttr "groupId494.id" "L_Thumb2_GeoShape.iog.og[0].gid";
-connectAttr ":initialShadingGroup.mwc" "L_Thumb2_GeoShape.iog.og[0].gco";
-connectAttr "groupId487.id" "L_Index1_GeoShape.iog.og[0].gid";
-connectAttr ":initialShadingGroup.mwc" "L_Index1_GeoShape.iog.og[0].gco";
-connectAttr "groupId495.id" "L_Index2_GeoShape.iog.og[0].gid";
-connectAttr ":initialShadingGroup.mwc" "L_Index2_GeoShape.iog.og[0].gco";
-connectAttr "groupId502.id" "L_Index3_GeoShape.iog.og[0].gid";
-connectAttr ":initialShadingGroup.mwc" "L_Index3_GeoShape.iog.og[0].gco";
-connectAttr "groupId488.id" "L_Middle1_GeoShape.iog.og[0].gid";
-connectAttr ":initialShadingGroup.mwc" "L_Middle1_GeoShape.iog.og[0].gco";
-connectAttr "groupId496.id" "L_Middle2_GeoShape.iog.og[0].gid";
-connectAttr ":initialShadingGroup.mwc" "L_Middle2_GeoShape.iog.og[0].gco";
-connectAttr "groupId503.id" "L_Middle3_GeoShape.iog.og[0].gid";
-connectAttr ":initialShadingGroup.mwc" "L_Middle3_GeoShape.iog.og[0].gco";
-connectAttr "groupId489.id" "L_Pinky1_GeoShape.iog.og[0].gid";
-connectAttr ":initialShadingGroup.mwc" "L_Pinky1_GeoShape.iog.og[0].gco";
-connectAttr "groupId497.id" "L_Pinky2_GeoShape.iog.og[0].gid";
-connectAttr ":initialShadingGroup.mwc" "L_Pinky2_GeoShape.iog.og[0].gco";
-connectAttr "groupId504.id" "L_Pinky3_GeoShape.iog.og[0].gid";
-connectAttr ":initialShadingGroup.mwc" "L_Pinky3_GeoShape.iog.og[0].gco";
+connectAttr "groupId486.id" "L_Thumb_Knuckle_1_GeoShape.iog.og[0].gid";
+connectAttr ":initialShadingGroup.mwc" "L_Thumb_Knuckle_1_GeoShape.iog.og[0].gco"
+		;
+connectAttr "groupId494.id" "L_Thumb_Knuckle_2_GeoShape.iog.og[0].gid";
+connectAttr ":initialShadingGroup.mwc" "L_Thumb_Knuckle_2_GeoShape.iog.og[0].gco"
+		;
+connectAttr "groupId487.id" "L_Index_Knuckle_1_GeoShape.iog.og[0].gid";
+connectAttr ":initialShadingGroup.mwc" "L_Index_Knuckle_1_GeoShape.iog.og[0].gco"
+		;
+connectAttr "groupId495.id" "L_Index_Knuckle_2_GeoShape.iog.og[0].gid";
+connectAttr ":initialShadingGroup.mwc" "L_Index_Knuckle_2_GeoShape.iog.og[0].gco"
+		;
+connectAttr "groupId502.id" "L_Index_Knuckle_3_GeoShape.iog.og[0].gid";
+connectAttr ":initialShadingGroup.mwc" "L_Index_Knuckle_3_GeoShape.iog.og[0].gco"
+		;
+connectAttr "groupId488.id" "L_Middle_Knuckle_1_GeoShape.iog.og[0].gid";
+connectAttr ":initialShadingGroup.mwc" "L_Middle_Knuckle_1_GeoShape.iog.og[0].gco"
+		;
+connectAttr "groupId496.id" "L_Middle_Knuckle_2_GeoShape.iog.og[0].gid";
+connectAttr ":initialShadingGroup.mwc" "L_Middle_Knuckle_2_GeoShape.iog.og[0].gco"
+		;
+connectAttr "groupId503.id" "L_Middle_Knuckle_3_GeoShape.iog.og[0].gid";
+connectAttr ":initialShadingGroup.mwc" "L_Middle_Knuckle_3_GeoShape.iog.og[0].gco"
+		;
+connectAttr "groupId489.id" "L_Pinky_Knuckle_1_GeoShape.iog.og[0].gid";
+connectAttr ":initialShadingGroup.mwc" "L_Pinky_Knuckle_1_GeoShape.iog.og[0].gco"
+		;
+connectAttr "groupId497.id" "L_Pinky_Knuckle_2_GeoShape.iog.og[0].gid";
+connectAttr ":initialShadingGroup.mwc" "L_Pinky_Knuckle_2_GeoShape.iog.og[0].gco"
+		;
+connectAttr "groupId504.id" "L_Pinky_Knuckle_3_GeoShape.iog.og[0].gid";
+connectAttr ":initialShadingGroup.mwc" "L_Pinky_Knuckle_3_GeoShape.iog.og[0].gco"
+		;
 connectAttr "groupId472.id" "R_Arm_GeoShape.iog.og[0].gid";
 connectAttr ":initialShadingGroup.mwc" "R_Arm_GeoShape.iog.og[0].gco";
 connectAttr "groupId479.id" "R_Forearm_GeoShape.iog.og[0].gid";
 connectAttr ":initialShadingGroup.mwc" "R_Forearm_GeoShape.iog.og[0].gco";
 connectAttr "groupId485.id" "R_Hand_GeoShape.iog.og[0].gid";
 connectAttr ":initialShadingGroup.mwc" "R_Hand_GeoShape.iog.og[0].gco";
-connectAttr "groupId490.id" "R_Thumb1_GeoShape.iog.og[0].gid";
-connectAttr ":initialShadingGroup.mwc" "R_Thumb1_GeoShape.iog.og[0].gco";
-connectAttr "groupId498.id" "R_Thumb2_GeoShape.iog.og[0].gid";
-connectAttr ":initialShadingGroup.mwc" "R_Thumb2_GeoShape.iog.og[0].gco";
-connectAttr "groupId491.id" "R_Index1_GeoShape.iog.og[0].gid";
-connectAttr ":initialShadingGroup.mwc" "R_Index1_GeoShape.iog.og[0].gco";
-connectAttr "groupId499.id" "R_Index2_GeoShape.iog.og[0].gid";
-connectAttr ":initialShadingGroup.mwc" "R_Index2_GeoShape.iog.og[0].gco";
-connectAttr "groupId505.id" "R_Index3_GeoShape.iog.og[0].gid";
-connectAttr ":initialShadingGroup.mwc" "R_Index3_GeoShape.iog.og[0].gco";
-connectAttr "groupId492.id" "R_Middle1_GeoShape.iog.og[0].gid";
-connectAttr ":initialShadingGroup.mwc" "R_Middle1_GeoShape.iog.og[0].gco";
-connectAttr "groupId500.id" "R_Middle2_GeoShape.iog.og[0].gid";
-connectAttr ":initialShadingGroup.mwc" "R_Middle2_GeoShape.iog.og[0].gco";
-connectAttr "groupId506.id" "R_Middle3_GeoShape.iog.og[0].gid";
-connectAttr ":initialShadingGroup.mwc" "R_Middle3_GeoShape.iog.og[0].gco";
-connectAttr "groupId493.id" "R_Pinky1_GeoShape.iog.og[0].gid";
-connectAttr ":initialShadingGroup.mwc" "R_Pinky1_GeoShape.iog.og[0].gco";
-connectAttr "groupId501.id" "R_Pinky2_GeoShape.iog.og[0].gid";
-connectAttr ":initialShadingGroup.mwc" "R_Pinky2_GeoShape.iog.og[0].gco";
-connectAttr "groupId507.id" "R_Pinky3_GeoShape.iog.og[0].gid";
-connectAttr ":initialShadingGroup.mwc" "R_Pinky3_GeoShape.iog.og[0].gco";
+connectAttr "groupId490.id" "R_Thumb_Knuckle_1_GeoShape.iog.og[0].gid";
+connectAttr ":initialShadingGroup.mwc" "R_Thumb_Knuckle_1_GeoShape.iog.og[0].gco"
+		;
+connectAttr "groupId498.id" "R_Thumb_Knuckle_2_GeoShape.iog.og[0].gid";
+connectAttr ":initialShadingGroup.mwc" "R_Thumb_Knuckle_2_GeoShape.iog.og[0].gco"
+		;
+connectAttr "groupId491.id" "R_Index_Knuckle_1_GeoShape.iog.og[0].gid";
+connectAttr ":initialShadingGroup.mwc" "R_Index_Knuckle_1_GeoShape.iog.og[0].gco"
+		;
+connectAttr "groupId499.id" "R_Index_Knuckle_2_GeoShape.iog.og[0].gid";
+connectAttr ":initialShadingGroup.mwc" "R_Index_Knuckle_2_GeoShape.iog.og[0].gco"
+		;
+connectAttr "groupId505.id" "R_Index_Knuckle_3_GeoShape.iog.og[0].gid";
+connectAttr ":initialShadingGroup.mwc" "R_Index_Knuckle_3_GeoShape.iog.og[0].gco"
+		;
+connectAttr "groupId492.id" "R_Middle_Knuckle_1_GeoShape.iog.og[0].gid";
+connectAttr ":initialShadingGroup.mwc" "R_Middle_Knuckle_1_GeoShape.iog.og[0].gco"
+		;
+connectAttr "groupId500.id" "R_Middle_Knuckle_2_GeoShape.iog.og[0].gid";
+connectAttr ":initialShadingGroup.mwc" "R_Middle_Knuckle_2_GeoShape.iog.og[0].gco"
+		;
+connectAttr "groupId506.id" "R_Middle_Knuckle_3_GeoShape.iog.og[0].gid";
+connectAttr ":initialShadingGroup.mwc" "R_Middle_Knuckle_3_GeoShape.iog.og[0].gco"
+		;
+connectAttr "groupId493.id" "R_Pinky_Knuckle_1_GeoShape.iog.og[0].gid";
+connectAttr ":initialShadingGroup.mwc" "R_Pinky_Knuckle_1_GeoShape.iog.og[0].gco"
+		;
+connectAttr "groupId501.id" "R_Pinky_Knuckle_2_GeoShape.iog.og[0].gid";
+connectAttr ":initialShadingGroup.mwc" "R_Pinky_Knuckle_2_GeoShape.iog.og[0].gco"
+		;
+connectAttr "groupId507.id" "R_Pinky_Knuckle_3_GeoShape.iog.og[0].gid";
+connectAttr ":initialShadingGroup.mwc" "R_Pinky_Knuckle_3_GeoShape.iog.og[0].gco"
+		;
 connectAttr "groupId473.id" "Head_GeoShape.iog.og[0].gid";
 connectAttr ":initialShadingGroup.mwc" "Head_GeoShape.iog.og[0].gco";
 connectAttr "groupId470.id" "Hips_GeoShape.iog.og[0].gid";
 connectAttr ":initialShadingGroup.mwc" "Hips_GeoShape.iog.og[0].gco";
-connectAttr "groupId474.id" "R_FTLeg_GeoShape.iog.og[0].gid";
-connectAttr ":initialShadingGroup.mwc" "R_FTLeg_GeoShape.iog.og[0].gco";
-connectAttr "groupId480.id" "R_FBLeg_GeoShape.iog.og[0].gid";
-connectAttr ":initialShadingGroup.mwc" "R_FBLeg_GeoShape.iog.og[0].gco";
-connectAttr ":initialShadingGroup.mwc" "R_FFoot_GeoShape.iog.og[0].gco";
-connectAttr "groupId475.id" "L_FTLeg_GeoShape.iog.og[0].gid";
-connectAttr ":initialShadingGroup.mwc" "L_FTLeg_GeoShape.iog.og[0].gco";
-connectAttr "groupId481.id" "L_FBLeg_GeoShape.iog.og[0].gid";
-connectAttr ":initialShadingGroup.mwc" "L_FBLeg_GeoShape.iog.og[0].gco";
-connectAttr ":initialShadingGroup.mwc" "L_FFoot_GeoShape.iog.og[0].gco";
-connectAttr "groupId476.id" "L_BTLeg_GeoShape.iog.og[0].gid";
-connectAttr ":initialShadingGroup.mwc" "L_BTLeg_GeoShape.iog.og[0].gco";
-connectAttr "groupId482.id" "L_BBLeg_GeoShape.iog.og[0].gid";
-connectAttr ":initialShadingGroup.mwc" "L_BBLeg_GeoShape.iog.og[0].gco";
-connectAttr ":initialShadingGroup.mwc" "L_BFoot_GeoShape.iog.og[0].gco";
-connectAttr "groupId477.id" "R_BTLeg_GeoShape.iog.og[0].gid";
-connectAttr ":initialShadingGroup.mwc" "R_BTLeg_GeoShape.iog.og[0].gco";
-connectAttr "groupId483.id" "R_BBLeg_GeoShape.iog.og[0].gid";
-connectAttr ":initialShadingGroup.mwc" "R_BBLeg_GeoShape.iog.og[0].gco";
-connectAttr ":initialShadingGroup.mwc" "R_BFoot_GeoShape.iog.og[0].gco";
+connectAttr "groupId474.id" "R_Front_Top_Leg_GeoShape.iog.og[0].gid";
+connectAttr ":initialShadingGroup.mwc" "R_Front_Top_Leg_GeoShape.iog.og[0].gco";
+connectAttr "groupId480.id" "R_Front_Bottom_Leg_GeoShape.iog.og[0].gid";
+connectAttr ":initialShadingGroup.mwc" "R_Front_Bottom_Leg_GeoShape.iog.og[0].gco"
+		;
+connectAttr ":initialShadingGroup.mwc" "R_Front_Foot_GeoShape.iog.og[0].gco";
+connectAttr "groupId475.id" "L_Front_Top_Leg_GeoShape.iog.og[0].gid";
+connectAttr ":initialShadingGroup.mwc" "L_Front_Top_Leg_GeoShape.iog.og[0].gco";
+connectAttr "groupId481.id" "L_Front_Bottom_Leg_GeoShape.iog.og[0].gid";
+connectAttr ":initialShadingGroup.mwc" "L_Front_Bottom_Leg_GeoShape.iog.og[0].gco"
+		;
+connectAttr ":initialShadingGroup.mwc" "L_Front_Foot_GeoShape.iog.og[0].gco";
+connectAttr "groupId476.id" "L_Back_Top_Leg_GeoShape.iog.og[0].gid";
+connectAttr ":initialShadingGroup.mwc" "L_Back_Top_Leg_GeoShape.iog.og[0].gco";
+connectAttr "groupId482.id" "L_Back_Bottom_Leg_GeoShape.iog.og[0].gid";
+connectAttr ":initialShadingGroup.mwc" "L_Back_Bottom_Leg_GeoShape.iog.og[0].gco"
+		;
+connectAttr ":initialShadingGroup.mwc" "L_Back_Foot_GeoShape.iog.og[0].gco";
+connectAttr "groupId477.id" "R_Back_Top_Leg_GeoShape.iog.og[0].gid";
+connectAttr ":initialShadingGroup.mwc" "R_Back_Top_Leg_GeoShape.iog.og[0].gco";
+connectAttr "groupId483.id" "R_Back_Bottom_Leg_GeoShape.iog.og[0].gid";
+connectAttr ":initialShadingGroup.mwc" "R_Back_Bottom_Leg_GeoShape.iog.og[0].gco"
+		;
+connectAttr ":initialShadingGroup.mwc" "R_Back_Foot_GeoShape.iog.og[0].gco";
 relationship "link" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" "uv_shaderSG.message" ":defaultLightSet.message";
@@ -77725,56 +78016,80 @@ connectAttr "defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
 connectAttr "clayt_20161012_0047_defaultRenderLayer.msg" ":defaultRenderingList1.r"
 		 -na;
 connectAttr "file1.msg" ":defaultTextureList1.tx" -na;
-connectAttr "polySurfaceShape34.iog.og[0]" ":initialShadingGroup.dsm" -na;
-connectAttr "L_FFoot_GeoShape.iog.og[0]" ":initialShadingGroup.dsm" -na;
-connectAttr "L_BFoot_GeoShape.iog.og[0]" ":initialShadingGroup.dsm" -na;
-connectAttr "R_FFoot_GeoShape.iog.og[0]" ":initialShadingGroup.dsm" -na;
-connectAttr "R_BFoot_GeoShape.iog.og[0]" ":initialShadingGroup.dsm" -na;
-connectAttr "L_FFoot_GeoShape.iog" ":initialShadingGroup.dsm" -na;
-connectAttr "R_FFoot_GeoShape.iog" ":initialShadingGroup.dsm" -na;
-connectAttr "polySurfaceShape34.iog" ":initialShadingGroup.dsm" -na;
-connectAttr "R_BFoot_GeoShape.iog" ":initialShadingGroup.dsm" -na;
-connectAttr "L_BFoot_GeoShape.iog" ":initialShadingGroup.dsm" -na;
+connectAttr "L_Front_Foot_GeoShape.iog.og[0]" ":initialShadingGroup.dsm" -na;
+connectAttr "L_Back_Foot_GeoShape.iog.og[0]" ":initialShadingGroup.dsm" -na;
+connectAttr "R_Front_Foot_GeoShape.iog.og[0]" ":initialShadingGroup.dsm" -na;
+connectAttr "R_Back_Foot_GeoShape.iog.og[0]" ":initialShadingGroup.dsm" -na;
+connectAttr "L_Front_Foot_GeoShape.iog" ":initialShadingGroup.dsm" -na;
+connectAttr "R_Front_Foot_GeoShape.iog" ":initialShadingGroup.dsm" -na;
+connectAttr "R_Back_Foot_GeoShape.iog" ":initialShadingGroup.dsm" -na;
+connectAttr "L_Back_Foot_GeoShape.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "B_Torso_GeoShape.iog.og[0]" ":initialShadingGroup.dsm" -na;
 connectAttr "U_Torso_GeoShape.iog.og[0]" ":initialShadingGroup.dsm" -na;
 connectAttr "Hips_GeoShape.iog.og[0]" ":initialShadingGroup.dsm" -na;
 connectAttr "L_Arm_GeoShape.iog.og[0]" ":initialShadingGroup.dsm" -na;
 connectAttr "R_Arm_GeoShape.iog.og[0]" ":initialShadingGroup.dsm" -na;
 connectAttr "Head_GeoShape.iog.og[0]" ":initialShadingGroup.dsm" -na;
-connectAttr "R_FTLeg_GeoShape.iog.og[0]" ":initialShadingGroup.dsm" -na;
-connectAttr "L_FTLeg_GeoShape.iog.og[0]" ":initialShadingGroup.dsm" -na;
-connectAttr "L_BTLeg_GeoShape.iog.og[0]" ":initialShadingGroup.dsm" -na;
-connectAttr "R_BTLeg_GeoShape.iog.og[0]" ":initialShadingGroup.dsm" -na;
+connectAttr "R_Front_Top_Leg_GeoShape.iog.og[0]" ":initialShadingGroup.dsm" -na;
+connectAttr "L_Front_Top_Leg_GeoShape.iog.og[0]" ":initialShadingGroup.dsm" -na;
+connectAttr "L_Back_Top_Leg_GeoShape.iog.og[0]" ":initialShadingGroup.dsm" -na;
+connectAttr "R_Back_Top_Leg_GeoShape.iog.og[0]" ":initialShadingGroup.dsm" -na;
 connectAttr "L_Forearm_GeoShape.iog.og[0]" ":initialShadingGroup.dsm" -na;
 connectAttr "R_Forearm_GeoShape.iog.og[0]" ":initialShadingGroup.dsm" -na;
-connectAttr "R_FBLeg_GeoShape.iog.og[0]" ":initialShadingGroup.dsm" -na;
-connectAttr "L_FBLeg_GeoShape.iog.og[0]" ":initialShadingGroup.dsm" -na;
-connectAttr "L_BBLeg_GeoShape.iog.og[0]" ":initialShadingGroup.dsm" -na;
-connectAttr "R_BBLeg_GeoShape.iog.og[0]" ":initialShadingGroup.dsm" -na;
+connectAttr "R_Front_Bottom_Leg_GeoShape.iog.og[0]" ":initialShadingGroup.dsm" -na
+		;
+connectAttr "L_Front_Bottom_Leg_GeoShape.iog.og[0]" ":initialShadingGroup.dsm" -na
+		;
+connectAttr "L_Back_Bottom_Leg_GeoShape.iog.og[0]" ":initialShadingGroup.dsm" -na
+		;
+connectAttr "R_Back_Bottom_Leg_GeoShape.iog.og[0]" ":initialShadingGroup.dsm" -na
+		;
 connectAttr "L_Hand_GeoShape.iog.og[0]" ":initialShadingGroup.dsm" -na;
 connectAttr "R_Hand_GeoShape.iog.og[0]" ":initialShadingGroup.dsm" -na;
-connectAttr "L_Thumb1_GeoShape.iog.og[0]" ":initialShadingGroup.dsm" -na;
-connectAttr "L_Index1_GeoShape.iog.og[0]" ":initialShadingGroup.dsm" -na;
-connectAttr "L_Middle1_GeoShape.iog.og[0]" ":initialShadingGroup.dsm" -na;
-connectAttr "L_Pinky1_GeoShape.iog.og[0]" ":initialShadingGroup.dsm" -na;
-connectAttr "R_Thumb1_GeoShape.iog.og[0]" ":initialShadingGroup.dsm" -na;
-connectAttr "R_Index1_GeoShape.iog.og[0]" ":initialShadingGroup.dsm" -na;
-connectAttr "R_Middle1_GeoShape.iog.og[0]" ":initialShadingGroup.dsm" -na;
-connectAttr "R_Pinky1_GeoShape.iog.og[0]" ":initialShadingGroup.dsm" -na;
-connectAttr "L_Thumb2_GeoShape.iog.og[0]" ":initialShadingGroup.dsm" -na;
-connectAttr "L_Index2_GeoShape.iog.og[0]" ":initialShadingGroup.dsm" -na;
-connectAttr "L_Middle2_GeoShape.iog.og[0]" ":initialShadingGroup.dsm" -na;
-connectAttr "L_Pinky2_GeoShape.iog.og[0]" ":initialShadingGroup.dsm" -na;
-connectAttr "R_Thumb2_GeoShape.iog.og[0]" ":initialShadingGroup.dsm" -na;
-connectAttr "R_Index2_GeoShape.iog.og[0]" ":initialShadingGroup.dsm" -na;
-connectAttr "R_Middle2_GeoShape.iog.og[0]" ":initialShadingGroup.dsm" -na;
-connectAttr "R_Pinky2_GeoShape.iog.og[0]" ":initialShadingGroup.dsm" -na;
-connectAttr "L_Index3_GeoShape.iog.og[0]" ":initialShadingGroup.dsm" -na;
-connectAttr "L_Middle3_GeoShape.iog.og[0]" ":initialShadingGroup.dsm" -na;
-connectAttr "L_Pinky3_GeoShape.iog.og[0]" ":initialShadingGroup.dsm" -na;
-connectAttr "R_Index3_GeoShape.iog.og[0]" ":initialShadingGroup.dsm" -na;
-connectAttr "R_Middle3_GeoShape.iog.og[0]" ":initialShadingGroup.dsm" -na;
-connectAttr "R_Pinky3_GeoShape.iog.og[0]" ":initialShadingGroup.dsm" -na;
+connectAttr "L_Thumb_Knuckle_1_GeoShape.iog.og[0]" ":initialShadingGroup.dsm" -na
+		;
+connectAttr "L_Index_Knuckle_1_GeoShape.iog.og[0]" ":initialShadingGroup.dsm" -na
+		;
+connectAttr "L_Middle_Knuckle_1_GeoShape.iog.og[0]" ":initialShadingGroup.dsm" -na
+		;
+connectAttr "L_Pinky_Knuckle_1_GeoShape.iog.og[0]" ":initialShadingGroup.dsm" -na
+		;
+connectAttr "R_Thumb_Knuckle_1_GeoShape.iog.og[0]" ":initialShadingGroup.dsm" -na
+		;
+connectAttr "R_Index_Knuckle_1_GeoShape.iog.og[0]" ":initialShadingGroup.dsm" -na
+		;
+connectAttr "R_Middle_Knuckle_1_GeoShape.iog.og[0]" ":initialShadingGroup.dsm" -na
+		;
+connectAttr "R_Pinky_Knuckle_1_GeoShape.iog.og[0]" ":initialShadingGroup.dsm" -na
+		;
+connectAttr "L_Thumb_Knuckle_2_GeoShape.iog.og[0]" ":initialShadingGroup.dsm" -na
+		;
+connectAttr "L_Index_Knuckle_2_GeoShape.iog.og[0]" ":initialShadingGroup.dsm" -na
+		;
+connectAttr "L_Middle_Knuckle_2_GeoShape.iog.og[0]" ":initialShadingGroup.dsm" -na
+		;
+connectAttr "L_Pinky_Knuckle_2_GeoShape.iog.og[0]" ":initialShadingGroup.dsm" -na
+		;
+connectAttr "R_Thumb_Knuckle_2_GeoShape.iog.og[0]" ":initialShadingGroup.dsm" -na
+		;
+connectAttr "R_Index_Knuckle_2_GeoShape.iog.og[0]" ":initialShadingGroup.dsm" -na
+		;
+connectAttr "R_Middle_Knuckle_2_GeoShape.iog.og[0]" ":initialShadingGroup.dsm" -na
+		;
+connectAttr "R_Pinky_Knuckle_2_GeoShape.iog.og[0]" ":initialShadingGroup.dsm" -na
+		;
+connectAttr "L_Index_Knuckle_3_GeoShape.iog.og[0]" ":initialShadingGroup.dsm" -na
+		;
+connectAttr "L_Middle_Knuckle_3_GeoShape.iog.og[0]" ":initialShadingGroup.dsm" -na
+		;
+connectAttr "L_Pinky_Knuckle_3_GeoShape.iog.og[0]" ":initialShadingGroup.dsm" -na
+		;
+connectAttr "R_Index_Knuckle_3_GeoShape.iog.og[0]" ":initialShadingGroup.dsm" -na
+		;
+connectAttr "R_Middle_Knuckle_3_GeoShape.iog.og[0]" ":initialShadingGroup.dsm" -na
+		;
+connectAttr "R_Pinky_Knuckle_3_GeoShape.iog.og[0]" ":initialShadingGroup.dsm" -na
+		;
 connectAttr "groupId468.msg" ":initialShadingGroup.gn" -na;
 connectAttr "groupId469.msg" ":initialShadingGroup.gn" -na;
 connectAttr "groupId470.msg" ":initialShadingGroup.gn" -na;
@@ -77815,4 +78130,4 @@ connectAttr "groupId504.msg" ":initialShadingGroup.gn" -na;
 connectAttr "groupId505.msg" ":initialShadingGroup.gn" -na;
 connectAttr "groupId506.msg" ":initialShadingGroup.gn" -na;
 connectAttr "groupId507.msg" ":initialShadingGroup.gn" -na;
-// End of bot_model_Lab_1.ma
+// End of bot_model_Lab.ma
