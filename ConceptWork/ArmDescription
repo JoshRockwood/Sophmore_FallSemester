@@ -26,3 +26,8 @@ It has a ball joint on the bottom, which was an addition to the original design,
 I added ears to the knight piece and indents for the eyes and nostrils. I finished up the fingers on the arms with edge looping and the multicut tool to make sure teh topology was correct. 
 I made sure that all the parenting was correctly laid out and that the model was moving and functioning correctly so it was prepped for rigging.
 I also added little discs to "pocket" the finger joints connected to the rook part of the arm.
+
+--Material Update--
+I decided to make the model mostly marble with wood highlights. The knight piece was given a black marble substance and the base of the piece has two higlighted wood panels on it. The rook piece is a white marble with two wood panels as well.
+The joints are made up of a brushed metal material to give it the "robot" feel. The base was designed to look like a chess board, with wood borders around the board, and the two types of marble for the squares.
+The pawn pieces were also a white marble with some wood highlights. Overall I feel that the aesthetic arm works well with all of the pieces and textures added to it, giving it a sophisticated and elegant feel, much like the game of chess.
