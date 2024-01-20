@@ -1,12 +1,12 @@
 //Maya ASCII 2024 scene
 //Name: ChessRobotArm.ma
-//Last modified: Fri, Jan 19, 2024 04:47:07 PM
+//Last modified: Fri, Jan 19, 2024 05:08:29 PM
 //Codeset: 1252
 requires maya "2024";
 requires "stereoCamera" "10.0";
 requires -nodeType "substanceNode" -nodeType "substanceOutputNode" "substancemaya" "2.4.0";
-requires -nodeType "aiOptions" -nodeType "aiAOVDriver" -nodeType "aiAOVFilter" -nodeType "aiSkyDomeLight"
-		 -nodeType "aiStandardSurface" "mtoa" "5.3.4.1";
+requires -nodeType "aiOptions" -nodeType "aiAOVDriver" -nodeType "aiAOVFilter" -nodeType "aiStandardSurface"
+		 "mtoa" "5.3.4.1";
 requires -nodeType "mayaUsdLayerManager" -dataType "pxrUsdStageData" "mayaUsdPlugin" "0.25.0";
 requires "stereoCamera" "10.0";
 currentUnit -l centimeter -a degree -t film;
@@ -15,17 +15,17 @@ fileInfo "product" "Maya 2024";
 fileInfo "version" "2024";
 fileInfo "cutIdentifier" "202310181224-69282f2959";
 fileInfo "osv" "Windows 11 Pro v2009 (Build: 22631)";
-fileInfo "UUID" "A409E382-4FC2-3394-42AA-13A3517B602C";
+fileInfo "UUID" "1E0BB3D0-445D-88C5-8A4A-79A64AF6F7E1";
 createNode transform -s -n "persp";
 	rename -uid "D06B25D9-45AD-6531-18E8-46B49C83C11B";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 19.554200453824862 10.637027476786564 28.279514405041844 ;
-	setAttr ".r" -type "double3" 1430.6616474985417 -8970.6000000000877 0 ;
+	setAttr ".t" -type "double3" 14.836939464046033 10.612390869724459 28.478801117884689 ;
+	setAttr ".r" -type "double3" 1429.4616474984855 -8977.800000000123 0 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "6090119A-4E4F-0D25-0B90-3AB97EFA9614";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999993;
-	setAttr ".coi" 31.665798498279429;
+	setAttr ".coi" 30.289844356457081;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -24829,15 +24829,6 @@ createNode mesh -n "polySurfaceShape14" -p "Knight_Arm";
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".dsm" 2;
-createNode transform -n "aiSkyDomeLight1";
-	rename -uid "A0926F2F-497E-54AB-04D5-4CBFB30B800C";
-createNode aiSkyDomeLight -n "aiSkyDomeLightShape1" -p "aiSkyDomeLight1";
-	rename -uid "72A010C6-4138-56AA-4C02-D5B177F1F57F";
-	addAttr -ci true -h true -sn "aal" -ln "attributeAliasList" -dt "attributeAlias";
-	setAttr -k off ".v";
-	setAttr ".csh" no;
-	setAttr ".rcsh" no;
-	setAttr ".aal" -type "attributeAlias" {"exposure","aiExposure"} ;
 createNode lightLinker -s -n "lightLinker1";
 	rename -uid "93195261-43A3-D54D-F9B2-5BA693CBE9D5";
 	setAttr -s 6 ".lnk";
@@ -34058,7 +34049,7 @@ createNode nodeGraphEditorInfo -n "hyperShadePrimaryNodeEditorSavedTabsInfo";
 	setAttr ".tgi[0].ni[85].y" 3780;
 	setAttr ".tgi[0].ni[85].nvs" 1970;
 createNode mayaUsdLayerManager -n "mayaUsdLayerManager1";
-	rename -uid "2589E2D6-4E8E-A63B-D247-148F298BC1D7";
+	rename -uid "E6E6F48A-49CE-A85E-E14E-7A9A0AB47BB3";
 	setAttr ".sst" -type "string" "";
 select -ne :time1;
 	setAttr ".o" 1;
@@ -34080,7 +34071,6 @@ select -ne :postProcessList1;
 select -ne :defaultRenderUtilityList1;
 	setAttr -s 8 ".u";
 select -ne :defaultRenderingList1;
-select -ne :lightList1;
 select -ne :defaultTextureList1;
 	setAttr -s 70 ".tx";
 select -ne :standardSurface1;
@@ -34101,7 +34091,6 @@ select -ne :defaultResolution;
 	setAttr ".h" 1080;
 	setAttr ".pa" 1;
 	setAttr ".dar" 1.7769999504089355;
-select -ne :defaultLightSet;
 select -ne :defaultColorMgtGlobals;
 	setAttr ".cfe" yes;
 	setAttr ".cfp" -type "string" "<MAYA_RESOURCES>/OCIO-configs/Maya2022-default/config.ocio";
@@ -35792,7 +35781,6 @@ connectAttr "bump2d3.msg" ":defaultRenderUtilityList1.u" -na;
 connectAttr "place2dTexture4.msg" ":defaultRenderUtilityList1.u" -na;
 connectAttr "bump2d4.msg" ":defaultRenderUtilityList1.u" -na;
 connectAttr "defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
-connectAttr "aiSkyDomeLightShape1.ltd" ":lightList1.l" -na;
 connectAttr "substanceNode1.msg" ":defaultTextureList1.tx" -na;
 connectAttr "Nero_Marquina_Marble_diffuse.msg" ":defaultTextureList1.tx" -na;
 connectAttr "file1.msg" ":defaultTextureList1.tx" -na;
@@ -35864,5 +35852,4 @@ connectAttr "Paldao_Wood_metallic.msg" ":defaultTextureList1.tx" -na;
 connectAttr "file34.msg" ":defaultTextureList1.tx" -na;
 connectAttr "Paldao_Wood_normal.msg" ":defaultTextureList1.tx" -na;
 connectAttr "file35.msg" ":defaultTextureList1.tx" -na;
-connectAttr "aiSkyDomeLight1.iog" ":defaultLightSet.dsm" -na;
 // End of ChessRobotArm.ma
