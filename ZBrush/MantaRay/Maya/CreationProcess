@@ -6,3 +6,9 @@ The model was exported as an FBX and brought into Zbrush and given eyelids aroun
 It was then exported again as an FBX and brought back into Maya where more edge loops were given around the eyes to help with eyelid movement in the rigging process.
 A tongue was also created in Maya and added to the mouth.
 Top and bottom teeth were also added, but after seeing how they worked with the model, I opted to hide them instead as I thought the Manta ray looked better without them.
+
+---Substance---
+The substance process was fairly straight forward. I wanted the Manta ray to be a simplified ray, adhering to Tom Bancroft's principles. 
+This entailed a focus on trying to replicate the markings of a Giant Oceanic Manta Ray, but having them be some what simplified to 
+work with the character model. Once the substances were completed, it was a relatively easy process in transporting the substances over to Maya
+and applying them to the model there. Everything was checked in the Arnold renderer to make sure that the substances were working correctly.
