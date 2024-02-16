@@ -76,3 +76,5 @@ crashlytics-build.properties
 Unity/MayaGameAnim/Maya Assets/.mayaSwatches/ChessRobotArm.ma.swatches
 
 Unity/MayaGameAnim/Maya Assets/ChessRobotArm.ma
+
+*.painter_lock
