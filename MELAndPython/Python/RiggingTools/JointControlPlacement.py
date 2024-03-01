@@ -10,6 +10,17 @@ def set_control_to_joint():
         cmds.select(sel, add=True)
         cmds.MatchTransform()
 
+        # Match Rotations to the joint
+        cmds.select("ControlGroup")
+        cmds.makeIdentity(apply=True, translate=True, rotate=True, scale=True, normal=0, preserveNormals=True)
+        cmds.setAttr('ControlGroup.rotateZ', 90)
+
+        # Parent and scale constraints for joint to control
+        cmds.select('Control')
+        cmds.select(sel, add=True)
+        cmds.parentConstraint(maintainOffset=True)
+        cmds.scaleConstraint(maintainOffset=True)
+
         # Rename control and control group
         control_group_name = sel + '_control_grp'
         control_name = sel + '_control'
