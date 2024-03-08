@@ -11,9 +11,9 @@ def set_control_to_joint():
         cmds.MatchTransform()
 
         # Match Rotations to the joint
-        cmds.select("ControlGroup")
+        cmds.select("Control")
+        cmds.setAttr('Control.rotateZ', 90)
         cmds.makeIdentity(apply=True, translate=True, rotate=True, scale=True, normal=0, preserveNormals=True)
-        cmds.setAttr('ControlGroup.rotateZ', 90)
 
         # Parent and scale constraints for joint to control
         cmds.select('Control')
