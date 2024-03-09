@@ -22,8 +22,8 @@ def set_control_to_joint():
         cmds.scaleConstraint(maintainOffset=True)
 
         # Rename control and control group
-        control_group_name = sel + '_control_grp'
-        control_name = sel + '_control'
+        control_group_name = sel + '_ctrl_grp'
+        control_name = sel + '_ctrl'
         cmds.rename('ControlGroup', control_group_name)
         cmds.rename('Control', control_name)
 
