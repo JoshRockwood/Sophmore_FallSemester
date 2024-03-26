@@ -1,6 +1,6 @@
 //Maya ASCII 2024 scene
-//Name: Lamp_IK_Rig.ma
-//Last modified: Mon, Mar 25, 2024 11:43:27 PM
+//Name: Lamp_RK_Rig.ma
+//Last modified: Mon, Mar 25, 2024 11:44:28 PM
 //Codeset: 1252
 requires maya "2024";
 requires "stereoCamera" "10.0";
@@ -13,7 +13,7 @@ fileInfo "product" "Maya 2024";
 fileInfo "version" "2024";
 fileInfo "cutIdentifier" "202310181224-69282f2959";
 fileInfo "osv" "Windows 11 Pro v2009 (Build: 22631)";
-fileInfo "UUID" "942F1223-4BD8-1B57-D3B7-DBBA65DF9938";
+fileInfo "UUID" "B93D97E7-489A-1796-6F5F-B2B00E5A2089";
 createNode transform -s -n "persp";
 	rename -uid "3248B176-49CC-8551-1274-FA9DC9855E54";
 	setAttr ".v" no;
@@ -4264,7 +4264,7 @@ createNode nodeGraphEditorInfo -n "MayaNodeEditorSavedTabsInfo";
 	setAttr ".tgi[0].ni[9].y" 353.79257202148438;
 	setAttr ".tgi[0].ni[9].nvs" 18304;
 createNode mayaUsdLayerManager -n "mayaUsdLayerManager1";
-	rename -uid "4DB17424-41A6-A099-DBA2-88AB57E03E1D";
+	rename -uid "D6FC021C-46A7-DF7F-819C-859F1D33044C";
 	setAttr ".sst" -type "string" "";
 select -ne :time1;
 	setAttr ".o" 1;
@@ -4924,4 +4924,4 @@ connectAttr "lambert2.msg" ":defaultShaderList1.s" -na;
 connectAttr "Arm_IKFK_Rev.msg" ":defaultRenderUtilityList1.u" -na;
 connectAttr "defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
 connectAttr "ikRPsolver.msg" ":ikSystem.sol" -na;
-// End of Lamp_IK_Rig.ma
+// End of Lamp_RK_Rig.ma
