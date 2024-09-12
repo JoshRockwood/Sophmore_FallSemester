@@ -7,4 +7,4 @@ for sel in sels:
     for shape in shapes:
         cmds.setAttr("%s.overrideEnabled" % (shape), 1)
         # Sets the color
-        cmds.setAttr("%s.overrideColor" % (shape), 6)
+        cmds.setAttr("%s.overrideColor" % (shape), 6) # Number is associated with color
