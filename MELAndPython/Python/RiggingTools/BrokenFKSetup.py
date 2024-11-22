@@ -18,7 +18,7 @@ cmds.scaleConstraint(parent_ctrl, child_ctrl_grp, offset=(1,1,1), weight=1) #con
 if not cmds.attributeQuery('FollowTranslate', node=child_ctrl, exists=True):
     cmds.addAttr(child_ctrl, ln='FollowTranslate', at='double', min=0, max=1, dv=1)
     cmds.setAttr('%s.FollowTranslate' % child_ctrl, e=True, keyable=True)
-if not cmds.attributeQuery('FollowTranslate', node=child_ctrl, exists=True):
+if not cmds.attributeQuery('FollowRotate', node=child_ctrl, exists=True):
     cmds.addAttr(child_ctrl, ln='FollowRotate', at='double', min=0, max=1, dv=1)
     cmds.setAttr('%s.FollowRotate' % child_ctrl, e=True, keyable=True)
 
